@@ -1,10 +1,12 @@
 # Makefile for CS 321 Group 4 Starship project
 
 #complier (make sure you have clang downlowded)
-CC=clang
+CC=gcc
 
 #compiler flags
-CFLAGS= `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm  # -I. -std=c99
+CFLAGS= `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lSDL2_ttf -lSDL2_mixer -g -lm  
+
+
 
 #header files
 HDRS= environment.h interactables.h character.h
