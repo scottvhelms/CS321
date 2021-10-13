@@ -94,7 +94,7 @@ void getInput(GMU* gmu){
 
 void setUpDisplay(GMU* gmu){
 	//sets to gray to represent sidewalk
-	SDL_SetRenderDrawColor(gmu->game->renderer, 232, 232, 232, 1);
+	SDL_SetRenderDrawColor(gmu->game->renderer, 210, 215, 211, 1);
 	SDL_RenderClear(gmu->game->renderer);
 }
 
