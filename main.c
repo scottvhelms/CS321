@@ -93,8 +93,8 @@ void getInput(GMU* gmu){
 }
 
 void setUpDisplay(GMU* gmu){
-	//sets to green to represent grass
-	SDL_SetRenderDrawColor(gmu->game->renderer, 0, 230, 64, 1);
+	//sets to gray to represent sidewalk
+	SDL_SetRenderDrawColor(gmu->game->renderer, 232, 232, 232, 1);
 	SDL_RenderClear(gmu->game->renderer);
 }
 
