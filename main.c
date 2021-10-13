@@ -49,7 +49,7 @@ void initializeSDL(Game* game){
 		exit(1);
 	}
 	
-	
+	//sets linear rendering default
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 
 	//init renderer
@@ -61,6 +61,8 @@ void initializeSDL(Game* game){
 		exit(1);
 	}
 
+	//init images to use png and jpg
+	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 }
 
 //close, destroys and frees as needed

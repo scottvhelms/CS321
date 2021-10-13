@@ -10,8 +10,6 @@
 #define SCREEN_ROW 1000 //size of the screen, these are test values and can be changed 
 #define SCREEN_COL 1000 //TODO define real screen size
 
-
-
 /*** Struct ***/
 
 //structure for the game window and renderer
