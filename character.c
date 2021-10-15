@@ -4,6 +4,10 @@
 
 #include "character.h"
 
+
+//TODO commented out so that the rest of the code can compile, please update character.h w
+/*
+
 void *initPlayer(Character *player) {
 	Player *p;
 
@@ -29,4 +33,4 @@ void movePlayer(void) {
 void playerDies(void) {
 }
 
-
+*/

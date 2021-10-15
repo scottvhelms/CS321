@@ -11,12 +11,9 @@
 #define MAP_ROW 10000 //default map size TODO figure out actual size needed
 #define MAP_COL 10000
 
-#define AMOUNT_OF_ENVIRO_TYPES 5 
+#define AMOUNT_OF_ENVIRO_TYPES 6 
 
 
-
-/*** Extern ***/
-//extern GMU gmu;
 
 /*** ENUM ***/
 enum enviro_types {	SIDEWALK = 0, 
@@ -36,10 +33,20 @@ typedef struct{
 
 
 
+/*** Extern ***/
+//extern struct GMU gmu;
+
 
 
 /*** Declarations ***/
 void initializeEnvironment(Environment* envion);
+//void initializeEnvironment(struct GMU* gmu);
+
 void initializeBuildings(Environment* envion);
 void loadEnviroTypes(SDL_Texture* enviro_types[AMOUNT_OF_ENVIRO_TYPES]);
+//void loadEnviroTypes(struct GMU* gmu);
+//void loadBackground(Environment* enviro);
+
+
+
 

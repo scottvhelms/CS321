@@ -19,9 +19,12 @@ void initializeGMU(GMU* gmu){
 	gmu->enviro = NULL;
 	gmu->enviro = (Environment*)malloc(sizeof(Environment));
 	initializeEnvironment(gmu->enviro);
+//TODO commented out till character.h is updated to support
+/*
 	gmu->player = NULL;
 	gmu->player = (Character*)malloc(sizeof(Character));
 	initPlayer(gmu->player);
+*/
 	//TODO add function for initializing interactables
 
 	//initialize render offeset TODO currently 0(top lefthand corner), find resonable offset.
