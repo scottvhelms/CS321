@@ -1,3 +1,3 @@
 # CS321
 
-Just trying out some git stuff! :)
+Cayla DeGuzman - Character Source Code
