@@ -17,7 +17,7 @@ typedef struct {
 	Event event;
 } Interactable;
 
-/*The purpose of this class is to 
+/*The purpose of this class is to
  * define the interactable behavior
  * based on the enum types
  */
@@ -26,12 +26,4 @@ typedef struct {
 } Event;
 
 
-
-
-
-
-
-
-
-
-
+/*This is a test*/
