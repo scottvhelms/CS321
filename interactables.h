@@ -14,7 +14,7 @@ enum interactables {
 typedef struct {
 	int positionX;
 	int positionY;
-	Event event;
+//	Event event;
 } Interactable;
 
 /*The purpose of this class is to
