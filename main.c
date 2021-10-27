@@ -12,13 +12,13 @@ void initializeGMU(GMU* gmu){
 		exit(1);
 	}
 	initializeSDL(gmu->game);
-
+	
 
 
 	//initialize environment, character, interactables
 	gmu->enviro = NULL;
-	gmu->enviro = (Environment*)malloc(sizeof(Environment));
-	initializeEnvironment(gmu->enviro);
+	gmu->enviro = (Environment*)malloc(sizeof(Environment)); //TODO Malloc error checking
+	initializeEnvironment(gmu);
 //TODO commented out till character.h is updated to support
 /*
 	gmu->player = NULL;
@@ -28,8 +28,8 @@ void initializeGMU(GMU* gmu){
 	//TODO add function for initializing interactables
 
 	//initialize render offeset TODO currently 0(top lefthand corner), find resonable offset.
-	gmu->renderOffset.x = 0;
-	gmu->renderOffset.y = 0;	
+	gmu->renderOffset.x = START_X;
+	gmu->renderOffset.y = START_Y;	
 
 }
 
@@ -96,6 +96,32 @@ void getInput(GMU* gmu){
 				endGame(gmu);
 				exit(0);
 				break;
+			case SDL_KEYDOWN://:
+				switch(event.key.keysym.sym){
+					case SDLK_UP:
+						if(gmu->renderOffset.y != 0){
+							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
+						}
+						break;
+					case SDLK_DOWN:
+						if(gmu->renderOffset.y != MAP_ROW-1){
+							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;	
+						}
+						break;
+					case SDLK_LEFT:
+						if(gmu->renderOffset.x != 0){
+							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
+						}
+						break;
+					case SDLK_RIGHT:
+						if(gmu->renderOffset.x != MAP_COL-1){
+							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
+						}
+					break;
+
+				}
+				//gmu->renderOffset.x = 0;
+				break;
 		}
 	}
 }
@@ -107,6 +133,8 @@ void setUpDisplay(GMU* gmu){
 }
 
 void display(GMU* gmu){
+	displayEnvironment(gmu);
+
 	SDL_RenderPresent(gmu->game->renderer);
 }
 
@@ -126,11 +154,11 @@ int main(){
 	//game loop
 	while(1){
 
-		setUpDisplay(gmu);	
-
-		getInput(gmu);		
+		setUpDisplay(gmu);
 
 		display(gmu);	
+
+		getInput(gmu);		
 
 		SDL_Delay(20);
 	}
