@@ -151,6 +151,9 @@ int main(){
 
 
 
+
+
+
 	//game loop
 	while(1){
 
