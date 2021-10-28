@@ -1,8 +1,8 @@
 #include "libraries.h"
 /***DEFINES***/
 /*Enviroment*/
-#define MAP_ROW 1000
-#define MAP_COL 1000
+#define MAP_ROW 892
+#define MAP_COL 1861
 #define AMOUNT_OF_ENVIRO_TYPES 6
 #define REND_ROW 128
 #define REND_COL 128
@@ -14,8 +14,8 @@
 #define SCREEN_ROW 1024
 #define SCREEN_COL 1024
 
-#define START_X 0
-#define START_Y 0
+#define START_COL 1000
+#define START_ROW 445
 
 
 /*** ENUM ***/

@@ -28,8 +28,8 @@ void initializeGMU(GMU* gmu){
 	//TODO add function for initializing interactables
 
 	//initialize render offeset TODO currently 0(top lefthand corner), find resonable offset.
-	gmu->renderOffset.x = START_X;
-	gmu->renderOffset.y = START_Y;	
+	gmu->renderOffset.x = START_COL - REND_COL/2;
+	gmu->renderOffset.y = START_ROW - REND_COL/2;	
 
 }
 

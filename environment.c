@@ -13,7 +13,15 @@ void initializeEnvironment(GMU *gmu){
 	initializeGrass(gmu->enviro);
 	initializeBuildings(gmu->enviro);
 
+	//start position TODO remove
+	gmu->enviro->map[START_ROW][START_COL] = 4;
+	gmu->enviro->map[440][995] = 4;
+	gmu->enviro->map[440][1005] = 4;
+	gmu->enviro->map[450][1005] = 4;
+	gmu->enviro->map[450][995] = 4;
 
+
+	drawCircle(gmu->enviro, START_ROW, START_COL, 10, 4);
 }
 
 void loadBackground(Environment* enviro){
@@ -36,32 +44,18 @@ void loadEnviroTypes(GMU* gmu){
 
 
 void initializeGrass(Environment* enviro){
-	int i,j;
-	for(i=24; i<34; ++i){
-		for(j=24; j<34; ++j){
-			enviro->map[i][j] = 1;
-		}
-	}	
-
-
+	drawRec(enviro, 951, 401, 1002, 428, GRASS);
+	drawRec(enviro, 1009, 401, 1057, 428, GRASS);
 }
 
 void initializeBuildings(Environment* enviro){
-
+	johnsonCenter(enviro);
 
 
 }
 
 void displayEnvironment(GMU* gmu){
-//	printf("\noccuring\n");
 	int row, col;
-
-//	printf("/ny:%d\n", gmu->renderOffset.y);
-//	printf("/nx:%d\n", gmu->renderOffset.x);
-
-//	gmu->renderOffset.x);
-
-
 
 	for (row = gmu->renderOffset.y; row<(REND_ROW+gmu->renderOffset.y); ++row){
 		for (col = gmu->renderOffset.x; col<(REND_COL+gmu->renderOffset.x); ++col){
@@ -90,22 +84,11 @@ void displayEnvironment(GMU* gmu){
 
 void show(GMU* gmu, int type, int row, int col){
 	SDL_Rect destination;
-
-
-//	destination.x = 0;
-//	destination.y = 0;
-//	destination.x = 128;
-//	destination.y = 128;
-
 	SDL_QueryTexture(	gmu->enviro->enviro_types[type], 
 				NULL, 
 				NULL, 
 				&destination.w, 
 				&destination.h);
-	
-
-//	destination.w = col;	
-//	destination.h = row;
 
 	destination.x = col*8 - gmu->renderOffset.x*8;
 	destination.y = row*8 - gmu->renderOffset.y*8;
@@ -115,6 +98,45 @@ void show(GMU* gmu, int type, int row, int col){
 				gmu->enviro->enviro_types[type], 
 				NULL, 
 				&destination);
+
+}
+
+void johnsonCenter(Environment* enviro){
+	drawRec(enviro, 877, 458, 1089, 565, BUILDING);
+	drawRec(enviro, 997, 451, 1015, 460, BUILDING);
+	drawRec(enviro, 998, 558, 1013, 570, BUILDING);
+
+
+}
+
+void drawRec(Environment* enviro, int x1, int y1, int x2, int y2, int type){
+	int i,j;
+	for(i=y1; i<y2; ++i){
+		for(j=x1; j<x2; ++j){
+			enviro->map[i][j] = type;
+		}
+
+	}
+
+}
+
+void drawCircle(Environment* enviro, int Cx, int Cy, int r, int type){
+	int x1, x2, y1, y2; 
+	x1 = Cx -r;
+	x2 = Cx + r;
+	y1 = Cy + r;
+	y2 = Cy + r;
+
+	int i,j;
+	for(i=y1; i<y2; ++i){
+		for(j=x1; j<x2; ++j){
+
+			if( (sqrt( ( pow((j-Cx),2) ) + (pow(( i-Cy),2) ) ) ) <= r){ //FIXME not working fix
+				enviro->map[i][j] = type;
+			}
+		}
+
+	}
 
 
 

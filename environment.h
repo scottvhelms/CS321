@@ -17,7 +17,6 @@ void loadBackground(Environment* enviro);
 
 void displayEnvironment(GMU* gmu);
 void show(GMU* gmu, int type, int row, int col);
-
-
-
-
+void drawRec(Environment* enviro, int x1, int x2, int y1, int y2, int type);
+void johnsonCenter(Environment* enviro);
+void drawCircle(Environment* enviro, int Cx, int Cy, int r, int type);
