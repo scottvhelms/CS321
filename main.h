@@ -25,6 +25,7 @@ typedef struct{
 	Environment* enviro;
 	SDL_Point renderOffset;
 	//TODO add character
+	Character* character;
 	//TODO add interactables
 }GMU;
 

@@ -20,11 +20,11 @@ void initializeGMU(GMU* gmu){
 	gmu->enviro = (Environment*)malloc(sizeof(Environment)); //TODO Malloc error checking
 	initializeEnvironment(gmu);
 //TODO commented out till character.h is updated to support
-/*
-	gmu->player = NULL;
-	gmu->player = (Character*)malloc(sizeof(Character));
-	initPlayer(gmu->player);
-*/
+
+	gmu->character = NULL;
+	gmu->character = (Character*)malloc(sizeof(Character));
+	initCharacter(gmu);
+
 	//TODO add function for initializing interactables
 
 	//initialize render offeset TODO currently 0(top lefthand corner), find resonable offset.
@@ -102,24 +102,39 @@ void getInput(GMU* gmu){
 						if(gmu->renderOffset.y != 0){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
 						}
+
+						gmu->character->y_pos -= 4;
+
 						break;
 					case SDLK_DOWN:
 						if(gmu->renderOffset.y != MAP_ROW-1){
 							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;	
 						}
+						
+						gmu->character->y_pos += 4;
+
 						break;
 					case SDLK_LEFT:
 						if(gmu->renderOffset.x != 0){
 							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
 						}
+						
+						gmu->character->x_pos -= 4;
+
 						break;
 					case SDLK_RIGHT:
 						if(gmu->renderOffset.x != MAP_COL-1){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
 						}
-					break;
 
+						gmu->character->x_pos += 4;
+						break;
+					
 				}
+
+				blit_Character(gmu, gmu->character->texture,gmu->character->x_pos,gmu->character->y_pos);
+				SDL_Delay(16);
+
 				//gmu->renderOffset.x = 0;
 				break;
 		}
