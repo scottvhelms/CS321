@@ -21,7 +21,13 @@
 /*** ENUM ***/
 
 /*Enviroment*/
-
+#define SIDEWALK 0
+#define GRASS 1
+#define WATER 2
+#define BUILDING 3
+#define STREET 4
+#define STAIRS 5
+/*
 enum enviro_types{
 	SIDEWALK = 0,
 	GRASS = 1,
@@ -30,7 +36,7 @@ enum enviro_types{
 	STREET = 4,
 	STAIRS = 5
 };
-
+*/
 /*Character*/
 
 /*Interactables*/

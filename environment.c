@@ -21,7 +21,6 @@ void initializeEnvironment(GMU *gmu){
 	gmu->enviro->map[450][995] = 4;
 
 
-	drawCircle(gmu->enviro, START_ROW, START_COL, 10, 4);
 }
 
 void loadBackground(Environment* enviro){
@@ -44,8 +43,17 @@ void loadEnviroTypes(GMU* gmu){
 
 
 void initializeGrass(Environment* enviro){
-	drawRec(enviro, 951, 401, 1002, 428, GRASS);
-	drawRec(enviro, 1009, 401, 1057, 428, GRASS);
+
+/*
+
+	int i,j;
+	for(i=24; i<34; ++i){
+		for(j=24; j<34; ++j){
+			enviro->map[i][j] = 1;
+		}
+	}	
+*/
+
 }
 
 void initializeBuildings(Environment* enviro){
@@ -102,41 +110,27 @@ void show(GMU* gmu, int type, int row, int col){
 }
 
 void johnsonCenter(Environment* enviro){
-	drawRec(enviro, 877, 458, 1089, 565, BUILDING);
-	drawRec(enviro, 997, 451, 1015, 460, BUILDING);
-	drawRec(enviro, 998, 558, 1013, 570, BUILDING);
+	int i,j;
+	for(i=455; i<565; ++i){
+		for(j=875; j<1090; ++j){
+			enviro->map[i][j] = 3;
+		}
 
+	}
+	drawRec(enviro, 455, 565, 875, 1090, BUILDING);
 
 }
 
-void drawRec(Environment* enviro, int x1, int y1, int x2, int y2, int type){
+void drawRec(Environment* enviro, int x1, int x2, int y1, int y2, int type){
 	int i,j;
-	for(i=y1; i<y2; ++i){
-		for(j=x1; j<x2; ++j){
+	for(i=x1; i<x2; ++i){
+		for(j=y1; j<y2; ++j){
 			enviro->map[i][j] = type;
 		}
 
 	}
 
-}
 
-void drawCircle(Environment* enviro, int Cx, int Cy, int r, int type){
-	int x1, x2, y1, y2; 
-	x1 = Cx -r;
-	x2 = Cx + r;
-	y1 = Cy + r;
-	y2 = Cy + r;
-
-	int i,j;
-	for(i=y1; i<y2; ++i){
-		for(j=x1; j<x2; ++j){
-
-			if( (sqrt( ( pow((j-Cx),2) ) + (pow(( i-Cy),2) ) ) ) <= r){ //FIXME not working fix
-				enviro->map[i][j] = type;
-			}
-		}
-
-	}
 
 
 
