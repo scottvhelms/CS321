@@ -43,6 +43,11 @@ typedef struct{
 }Environment;
 
 /*Character*/
+typedef struct{
+	int x_pos;
+	int y_pos;
+	SDL_Texture* texture;
+}Character;
 
 /*Interactables*/
 
@@ -60,5 +65,6 @@ typedef struct{
 	Environment* enviro;
 	SDL_Point renderOffset;
 	//TODO add character
+	Character* character;
 	//TODO add interactable
 }GMU;
