@@ -9,7 +9,7 @@ CFLAGS= `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -l
 
 
 #header files
-HDRS= environment.h interactables.h character.h
+HDRS= environment.h interactables.h character.h main.h structs.h
 
 #source files
 SRCS= main.c environment.c interactables.c character.c
