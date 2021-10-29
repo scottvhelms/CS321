@@ -14,11 +14,11 @@ void initializeEnvironment(GMU *gmu){
 	initializeBuildings(gmu->enviro);
 
 	//start position TODO remove
-	gmu->enviro->map[START_ROW][START_COL] = 4;
-	gmu->enviro->map[440][995] = 4;
-	gmu->enviro->map[440][1005] = 4;
-	gmu->enviro->map[450][1005] = 4;
-	gmu->enviro->map[450][995] = 4;
+//	gmu->enviro->map[START_ROW][START_COL] = 4;
+//	gmu->enviro->map[440][995] = 4;
+//	gmu->enviro->map[440][1005] = 4;
+//	gmu->enviro->map[450][1005] = 4;
+//	gmu->enviro->map[450][995] = 4;
 
 
 }
@@ -34,31 +34,44 @@ void loadBackground(Environment* enviro){
 }
 
 void loadEnviroTypes(GMU* gmu){
+	
+	gmu->enviro->enviro_types[1] = NULL; 
 	gmu->enviro->enviro_types[1] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
 	gmu->enviro->enviro_types[2] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
 	gmu->enviro->enviro_types[3] = IMG_LoadTexture(gmu->game->renderer, "E_textures/building.png");
 	gmu->enviro->enviro_types[4] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
 	gmu->enviro->enviro_types[5] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
+	
+
+	gmu->enviro->enviro_types[6] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_up.png");
+	gmu->enviro->enviro_types[7] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_down.png");
+	gmu->enviro->enviro_types[8] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_left.png");
+	gmu->enviro->enviro_types[9] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_right.png");
+		
+
+	
+
+	
+
+	
+
+	if (	gmu->enviro->enviro_types[1] == NULL) {printf("text Null");}
 }
 
 
 void initializeGrass(Environment* enviro){
+	drawRec(enviro, 400, 455, 924, 990, GRASS);
+	drawRec(enviro, 400, 455, 1010, 1090, GRASS);
+	drawRec(enviro, 330, 370, 924, 990, GRASS);
+	drawRec(enviro, 330, 370, 1010, 1090, GRASS);
 
-/*
-
-	int i,j;
-	for(i=24; i<34; ++i){
-		for(j=24; j<34; ++j){
-			enviro->map[i][j] = 1;
-		}
-	}	
-*/
 
 }
 
 void initializeBuildings(Environment* enviro){
 	johnsonCenter(enviro);
 
+	drawRec(enviro, 200, 320, 877, 984, BUILDING);
 
 }
 
@@ -110,13 +123,6 @@ void show(GMU* gmu, int type, int row, int col){
 }
 
 void johnsonCenter(Environment* enviro){
-	int i,j;
-	for(i=455; i<565; ++i){
-		for(j=875; j<1090; ++j){
-			enviro->map[i][j] = 3;
-		}
-
-	}
 	drawRec(enviro, 455, 565, 875, 1090, BUILDING);
 
 }

@@ -3,11 +3,11 @@
 /*Enviroment*/
 #define MAP_ROW 892
 #define MAP_COL 1861
-#define AMOUNT_OF_ENVIRO_TYPES 6
+#define AMOUNT_OF_ENVIRO_TYPES 10
 #define REND_ROW 128
 #define REND_COL 128
 /*Character*/
-
+#define CENTER 512
 /*Interactables*/
 
 /*Main*/
@@ -52,7 +52,12 @@ typedef struct{
 typedef struct{
 	int x_pos;
 	int y_pos;
-	SDL_Texture* texture;
+	int face;
+	SDL_Texture* up;
+	SDL_Texture* down;
+	SDL_Texture* right;
+	SDL_Texture* left;
+
 }Character;
 
 /*Interactables*/

@@ -102,24 +102,27 @@ void getInput(GMU* gmu){
 						if(gmu->renderOffset.y != 0){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
 						}
-
-						gmu->character->y_pos -= 4;
+		
+						gmu->character->face = 6;
 
 						break;
 					case SDLK_DOWN:
 						if(gmu->renderOffset.y != MAP_ROW-1){
 							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;	
 						}
-						
-						gmu->character->y_pos += 4;
+
+		
+						gmu->character->face = 7;
 
 						break;
 					case SDLK_LEFT:
 						if(gmu->renderOffset.x != 0){
 							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
 						}
+											
+
 						
-						gmu->character->x_pos -= 4;
+						gmu->character->face = 8;
 
 						break;
 					case SDLK_RIGHT:
@@ -127,14 +130,19 @@ void getInput(GMU* gmu){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
 						}
 
-						gmu->character->x_pos += 4;
+						blit_Character(	gmu, 
+								gmu->character->right,
+								CENTER,
+								CENTER);
+		
+
+						gmu->character->face = 9;
 						break;
 					
 				}
 
-				blit_Character(gmu, gmu->character->texture,gmu->character->x_pos,gmu->character->y_pos);
-				SDL_Delay(16);
 
+				
 				//gmu->renderOffset.x = 0;
 				break;
 		}
@@ -148,7 +156,12 @@ void setUpDisplay(GMU* gmu){
 }
 
 void display(GMU* gmu){
+
 	displayEnvironment(gmu);
+	blit_Character(	gmu, 
+			gmu->enviro->enviro_types[gmu->character->face],
+			CENTER,
+			CENTER);
 
 	SDL_RenderPresent(gmu->game->renderer);
 }
