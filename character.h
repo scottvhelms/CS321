@@ -6,7 +6,6 @@
 
 //declarations
 void blit_Character(GMU* gmu, SDL_Texture *texture, int x, int y);
-//SDL_Texture *load_CharacterTexture(GMU* gmu, char* filename);
 void loadFaceTypes(GMU* gmu);
 void initCharacter(GMU* gmu);
 

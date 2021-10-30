@@ -129,12 +129,6 @@ void getInput(GMU* gmu){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
 						}
 
-						blit_Character(	gmu, 
-								gmu->character->right,
-								CENTER,
-								CENTER);
-		
-
 						gmu->character->face = 3;
 						break;
 					

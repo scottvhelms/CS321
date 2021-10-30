@@ -28,16 +28,8 @@
 #define BUILDING 3
 #define STREET 4
 #define STAIRS 5
-/*
-enum enviro_types{
-	SIDEWALK = 0,
-	GRASS = 1,
-	WATER = 2,
-	BUILDING = 3,
-	STREET = 4,
-	STAIRS = 5
-};
-*/
+
+
 /*Character*/
 #define UP 0
 #define DOWN 1
@@ -80,7 +72,6 @@ typedef struct{
 	Game* game;
 	Environment* enviro;
 	SDL_Point renderOffset;
-	//TODO add character
 	Character* character;
 	//TODO add interactable
 }GMU;
