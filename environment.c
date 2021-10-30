@@ -42,12 +42,12 @@ void loadEnviroTypes(GMU* gmu){
 	gmu->enviro->enviro_types[4] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
 	gmu->enviro->enviro_types[5] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
 	
-
+	/*
 	gmu->enviro->enviro_types[6] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_up.png");
 	gmu->enviro->enviro_types[7] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_down.png");
 	gmu->enviro->enviro_types[8] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_left.png");
 	gmu->enviro->enviro_types[9] = IMG_LoadTexture(gmu->game->renderer, "C_textures/robot_right.png");
-		
+	*/	
 
 	
 

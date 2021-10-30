@@ -19,7 +19,6 @@ void initializeGMU(GMU* gmu){
 	gmu->enviro = NULL;
 	gmu->enviro = (Environment*)malloc(sizeof(Environment)); //TODO Malloc error checking
 	initializeEnvironment(gmu);
-//TODO commented out till character.h is updated to support
 
 	gmu->character = NULL;
 	gmu->character = (Character*)malloc(sizeof(Character));
@@ -103,7 +102,7 @@ void getInput(GMU* gmu){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
 						}
 		
-						gmu->character->face = 6;
+						gmu->character->face = 0;
 
 						break;
 					case SDLK_DOWN:
@@ -112,7 +111,7 @@ void getInput(GMU* gmu){
 						}
 
 		
-						gmu->character->face = 7;
+						gmu->character->face = 1;
 
 						break;
 					case SDLK_LEFT:
@@ -122,7 +121,7 @@ void getInput(GMU* gmu){
 											
 
 						
-						gmu->character->face = 8;
+						gmu->character->face = 2;
 
 						break;
 					case SDLK_RIGHT:
@@ -136,7 +135,7 @@ void getInput(GMU* gmu){
 								CENTER);
 		
 
-						gmu->character->face = 9;
+						gmu->character->face = 3;
 						break;
 					
 				}
@@ -158,8 +157,9 @@ void setUpDisplay(GMU* gmu){
 void display(GMU* gmu){
 
 	displayEnvironment(gmu);
+	// char stays in the center while face changes with input
 	blit_Character(	gmu, 
-			gmu->enviro->enviro_types[gmu->character->face],
+			gmu->character->face_types[gmu->character->face],
 			CENTER,
 			CENTER);
 

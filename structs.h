@@ -8,6 +8,7 @@
 #define REND_COL 128
 /*Character*/
 #define CENTER 512
+#define AMOUNT_OF_FACE_TYPES 4
 /*Interactables*/
 
 /*Main*/
@@ -38,6 +39,10 @@ enum enviro_types{
 };
 */
 /*Character*/
+#define UP 0
+#define DOWN 1
+#define LEFT 2
+#define RIGHT 3
 
 /*Interactables*/
 
@@ -57,7 +62,7 @@ typedef struct{
 	SDL_Texture* down;
 	SDL_Texture* right;
 	SDL_Texture* left;
-
+	SDL_Texture* face_types[AMOUNT_OF_FACE_TYPES];
 }Character;
 
 /*Interactables*/
