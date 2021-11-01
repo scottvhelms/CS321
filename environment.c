@@ -40,6 +40,7 @@ void initializeGrass(Environment* enviro){
 //	drawTriangle(enviro, 1010, 420, 1000, 440, 1020, 430, GRASS);
 //	drawTriangle(enviro, 970, 420, 970, 440, 990, 430, GRASS);
 //	drawTriangle(enviro, 1050, 440, 1030, 440, 1040, 420, GRASS);
+//	drawQuad(enviro, 1000, 420, 1010, 430, 1020, 420, 1010, 410, GRASS);
 
 //	enviro->map[420][1010] = WATER;
 //	enviro->map[440][1000] = WATER;
@@ -151,6 +152,32 @@ void drawTriangle(Environment* enviro, double x1, double y1, double x2, double y
 			check_3 = withinLine(x3,y3,x1,y1,x2,y2,j,i);
 			
 			if(check_1 && check_2 && check_3){
+				enviro->map[i][j] = type;
+			} 
+		}
+	}
+
+}
+
+
+void drawQuad(Environment* enviro, double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4, int type){
+	double grid_x1=0, grid_x2=0, grid_y1=0, grid_y2=0;
+	
+	grid_x1 = findMin(x1, x2, x3, x4);
+	grid_x2 = findMax(x1, x2, x3, x4);
+	grid_y1 = findMin(y1, y2, y3, y4);
+	grid_y2 = findMax(y1, y2, y3, y4);
+
+	int i,j;
+	int check_1 = 0, check_2 =  0, check_3 = 0, check_4 = 0;
+	for(i=grid_y1; i<grid_y2; ++i){
+		for(j=grid_x1; j<grid_x2; ++j){
+			check_1 = withinLine(x1,y1,x2,y2,x3,y3,j,i);
+			check_2 = withinLine(x2,y2,x3,y3,x4,y4,j,i);
+			check_3 = withinLine(x3,y3,x4,y4,x1,y1,j,i);
+			check_4 = withinLine(x4,y4,x1,y1,x2,y2,j,i);
+			
+			if(check_1 && check_2 && check_3 && check_4){
 				enviro->map[i][j] = type;
 			} else {
 				enviro->map[i][j] = STREET;
