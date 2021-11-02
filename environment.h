@@ -26,5 +26,23 @@ int findMin(int a, int b, int c, int d);
 int findMax(int a, int b, int c, int d);
 
 void johnsonCenter(Environment* enviro);
+void davidKingHall(Environment* enviro);
+void planetaryHall(Environment* enviro);
+void exploratoryHall(Environment* enviro);
+void enterpriseHall(Environment* enviro);
+void researchHall(Environment* enviro);
+void shenandoahParkingDeck(Environment* enviro);
+void nguyenEngineeringBuilding(Environment* enviro);
+void artAndDesignBuilding(Environment* enviro);
+void libertySquareHousing(Environment* enviro);
+void aquaticAndFitnessCenter(Environment* enviro);
+void innovationHall(Environment* enviro);
+void musicAndTheaterBuilding(Environment* enviro);
+void collegeHall(Environment* enviro);
+void buchananHall(Environment* enviro);
+void performingArtsBuilding(Environment* enviro);
+void concertHall(Environment* enviro);
+void masonPondParkingDeck(Environment* enviro);
+
 
 
