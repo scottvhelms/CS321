@@ -43,6 +43,13 @@ void buchananHall(Environment* enviro);
 void performingArtsBuilding(Environment* enviro);
 void concertHall(Environment* enviro);
 void masonPondParkingDeck(Environment* enviro);
+void harrisTheater(Environment* enviro);
+void horizonHall(Environment* enviro);
+void fenwickLibrary(Environment* enviro);
+void theHub(Environment* enviro);
+void southsideDining(Environment* enviro);
+void skylineFitnessCenter(Environment* enviro);
+void theCommons(Environment* enviro);
 
 
 

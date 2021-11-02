@@ -71,7 +71,14 @@ void initializeBuildings(Environment* enviro){
 	buchananHall(enviro);
 	performingArtsBuilding(enviro);
 	concertHall(enviro);
-	masonPondParkingDeck(enviro){
+	masonPondParkingDeck(enviro);
+	harrisTheater(enviro);
+	horizonHall(enviro);
+	fenwickLibrary(enviro);
+	theHub(enviro);
+	southsideDining(enviro);
+	skylineFitnessCenter(enviro);
+	theCommons(enviro);
 
 
 }
@@ -386,5 +393,96 @@ void concertHall(Environment* enviro){
 void masonPondParkingDeck(Environment* enviro){
 	drawRec(enviro, 717, 685, 808, 832, BUILDING);
 	drawRec(enviro, 700, 686, 719, 712, BUILDING);
+	drawRec(enviro, 709, 823, 723, 837, SIDEWALK);
+	drawRec(enviro, 800, 824, 814, 838, SIDEWALK);
+	drawRec(enviro, 800, 682, 815, 693, SIDEWALK);
+	drawRec(enviro, 714, 682, 721, 694, SIDEWALK);
+}
+
+void harrisTheater(Environment* enviro){
+	drawRec(enviro, 696, 545, 720, 600, BUILDING);
+	drawRec(enviro, 708, 551, 767, 589, BUILDING);
+	drawRec(enviro, 752, 566, 774, 616, BUILDING);
+	drawRec(enviro, 754, 455, 816, 570, BUILDING);
+}
+
+void horizonHall(Environment* enviro){
+	drawRec(enviro, 669, 394, 785, 459, BUILDING);
+	drawCircle(enviro, 790, 432, 20, BUILDING);
+	drawTriangle(enviro, 783, 405, 815, 455, 764, 462, BUILDING);
+	drawRec(enviro, 655, 409, 673, 412, SIDEWALK);
+	drawRec(enviro, 655, 425, 673, 428, SIDEWALK);
+}
+
+void fenwickLibrary(Environment* enviro){
+	drawRec(enviro, 529, 270, 583, 325, BUILDING);
+	drawRec(enviro, 579, 280, 618, 316, BUILDING);
+	drawRec(enviro, 591, 273, 618, 316, BUILDING);
+	drawRec(enviro, 614, 279, 658, 310, BUILDING);
+	drawRec(enviro, 627, 274, 658, 310, BUILDING);
+	drawRec(enviro, 651, 208, 734, 344, BUILDING);
+	drawRec(enviro, 635, 329, 753, 350, BUILDING);
+	drawQuad(enviro, 729, 232, 768, 229, 752, 326, 723, 322, BUILDING);
+	drawRec(enviro, 640, 223, 657, 232, BUILDING);
+}
+
+void theHub(Environment* enviro){
+	drawRec(enviro, 1016, 62, 1122, 141, BUILDING);
+	drawRec(enviro, 1016, 62, 1074, 157, BUILDING);
+	drawRec(enviro, 996, 76, 1030, 137, BUILDING);
+	drawRec(enviro, 1104, 137, 1115, 153, BUILDING);
+	drawRec(enviro, 1035, 144, 1073, 156, BUILDING);
+	drawQuad(enviro, 1010, 130, 990, 155, 1008, 170, 1025, 151, BUILDING);
+	drawQuad(enviro, 988, 146, 1008, 170, 977, 201, 956, 178, BUILDING);
+	drawQuad(enviro, 956, 178, 982, 206, 995, 198, 968, 169, BUILDING);
+}
+
+void southsideDining(Environment* enviro){
+	drawRec(enviro, 861, 99, 882, 115, BUILDING);
+	drawRec(enviro, 856, 114, 923, 175, BUILDING);
+	drawRec(enviro, 861, 102, 923, 175, BUILDING);
+	drawCircle(enviro, 882, 181, 15, BUILDING);
+	drawRec(enviro, 882, 174, 906, 201, SIDEWALK);
+	drawRec(enviro, 895, 170, 920, 185, BUILDING);
+}
+
+void skylineFitnessCenter(Environment* enviro){
+	drawRec(enviro, 796, 103, 828, 150, BUILDING);
+	drawRec(enviro, 796, 140, 870, 166, BUILDING);
+	drawRec(enviro, 790, 150, 870, 174, BUILDING);
 
 }
+
+void theCommons(Environment* enviro){
+	drawRec(enviro, 738, 90, 771, 167, BUILDING);
+	drawRec(enviro, 749, 163, 771, 173, BUILDING);
+	drawRec(enviro, 771, 109, 792, 132, BUILDING);
+
+	drawRec(enviro, 667, 70, 701, 134, BUILDING);
+	drawRec(enviro, 678, 113, 713, 163, BUILDING);
+	drawRec(enviro, 678, 158, 705, 170, BUILDING);
+	drawRec(enviro, 709, 117, 743, 135, BUILDING);
+
+	drawRec(enviro, 545, 72, 578, 132, BUILDING);
+	drawRec(enviro, 531, 106, 566, 162, BUILDING);
+	drawRec(enviro, 531, 156, 554, 168, BUILDING);
+	drawRec(enviro, 570, 113, 608, 132, BUILDING);
+
+	drawRec(enviro, 600, 72, 635, 132, BUILDING);
+	drawRec(enviro, 610, 106, 648, 162, BUILDING);
+	drawRec(enviro, 624, 162, 648, 168, BUILDING);
+
+	drawRec(enviro, 708, 24, 720, 42, BUILDING);
+	drawRec(enviro, 720, 19, 751, 49, BUILDING);
+	drawRec(enviro, 748, 25, 761, 67, BUILDING);
+	drawRec(enviro, 762, 44, 792, 73, BUILDING);
+	drawRec(enviro, 791, 50, 802, 71, BUILDING);
+	drawRec(enviro, 827, 25, 840, 48, BUILDING);
+	drawRec(enviro, 833, 43, 840, 60, BUILDING);
+	drawRec(enviro, 839, 23, 865, 53, BUILDING);
+	drawRec(enviro, 869, 22, 879, 47, BUILDING);
+	drawRec(enviro, 873, 19, 898, 30, BUILDING);
+	drawRec(enviro, 873, 0, 903, 20, BUILDING);
+
+}
+
