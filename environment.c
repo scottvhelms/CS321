@@ -80,8 +80,21 @@ void initializeBuildings(Environment* enviro){
 	skylineFitnessCenter(enviro);
 	theCommons(enviro);
 	commonwealthHall(enviro);
-
-
+	dominionHall(enviro);
+	northernNeck(enviro);
+	lectureHall(enviro);
+	eastBuilding(enviro);
+	krugHall(enviro);
+	finleyBuilding(enviro);
+	westBuilding(enviro);
+	studentUnionBuilding(enviro);
+	aquiaBuilding(enviro);
+	thompsonHall(enviro);
+	rappahannockParkingDeck(enviro);
+	alanAndSallyHall(enviro);
+	petersonHall(enviro);
+	rogers(enviro);
+	whiteTop(enviro);
 }
 
 void displayEnvironment(GMU* gmu){
@@ -492,5 +505,97 @@ void commonwealthHall(Environment* enviro){
 	drawRec(enviro, 487, 57, 494, 80, BUILDING);
 	drawQuad(enviro, 508, 17, 529, 29, 504, 69, 484, 57, BUILDING);
 	drawQuad(enviro, 522, 17, 533, 25, 526, 34, 514, 27, BUILDING);
+}
+
+void dominionHall(Environment* enviro){
+	drawQuad(enviro, 563, 27, 609, 5, 616, 27, 570, 46, BUILDING);
+	drawQuad(enviro, 560, 34, 568, 31, 570, 35, 562, 39, BUILDING);
+	drawQuad(enviro, 628, 0, 675, 9, 674, 31, 626, 26, BUILDING);
+	drawQuad(enviro, 668, 8, 682, 10, 680, 22, 667, 20, BUILDING);
+	drawRec(enviro, 610, 18, 633, 23, BUILDING);
+}
+
+void northernNeck(Environment* enviro){
+	drawQuad(enviro, 403, 14, 449, 43, 430, 69, 388, 42, BUILDING);
+	drawQuad(enviro, 397, 39, 427, 58, 384, 125, 360, 94, BUILDING);
+	drawQuad(enviro, 355, 115, 449, 120, 448, 156, 351, 145, BUILDING);
+	drawQuad(enviro, 360, 94, 350, 145, 380, 151, 394, 110, BUILDING);
+	drawRec(enviro, 412, 149, 431, 165, BUILDING);
+}
+
+void lectureHall(Environment* enviro){
+	drawRec(enviro, 416, 239, 491, 266, BUILDING);
+}
+
+void eastBuilding(Environment* enviro){
+	drawRec(enviro, 410, 321, 443, 390, BUILDING);
+}
+
+void krugHall(Environment* enviro){
+	drawRec(enviro, 478, 385, 515, 489, BUILDING);
+}
+
+void finleyBuilding(Environment* enviro){
+	drawRec(enviro, 359, 385, 391, 489, BUILDING);
+}
+
+void westBuilding(Environment* enviro){
+	drawRec(enviro, 428, 484, 459, 540, BUILDING);
+	drawRec(enviro, 437, 537, 458, 546, BUILDING);
+}
+
+void studentUnionBuilding(Environment* enviro){
+	drawRec(enviro, 565, 583, 651, 626, BUILDING);
+	drawRec(enviro, 594, 624, 615, 632, BUILDING);
+	drawRec(enviro, 558, 503, 662, 566, BUILDING);
+	drawRec(enviro, 571, 560, 646, 589, BUILDING);
+	drawRec(enviro, 613, 486, 634, 513, BUILDING);
+	drawRec(enviro, 633, 490, 662, 513, BUILDING);
+	drawTriangle(enviro, 563, 615, 581, 626, 558, 631, SIDEWALK);
+	drawRec(enviro, 561, 493, 581, 524, BUILDING);
+	drawRec(enviro, 576, 495, 596, 525, BUILDING);
+}
+
+void aquiaBuilding(Environment* enviro){
+	drawRec(enviro, 476, 522, 513, 615, BUILDING);
+	drawRec(enviro, 482, 510, 499, 528, BUILDING);
+	drawRec(enviro, 476, 532, 527, 615, BUILDING);
+	drawRec(enviro, 494, 612, 527, 626, BUILDING);
+	drawRec(enviro, 506, 621, 522, 640, BUILDING);
+}
+
+void thompsonHall(Environment* enviro){
+	drawRec(enviro, 300, 558, 396, 611, BUILDING);
+	drawRec(enviro, 296, 495, 329, 560, BUILDING);
+	drawRec(enviro, 309, 488, 318, 500, BUILDING);
+	drawRec(enviro, 394, 574, 410, 602, BUILDING);
+}
+
+void rappahannockParkingDeck(Environment* enviro){
+	drawTriangle(enviro, 212, 0, 358, 0, 327, 39, BUILDING);
+}
+
+void alanAndSallyHall(Environment* enviro){
+	drawQuad(enviro, 111, 30, 159, 48, 112, 183, 60, 162, BUILDING);
+	drawQuad(enviro, 122, 136, 142, 142, 126, 187, 101, 179, BUILDING);
+}
+
+void petersonHall(Environment* enviro){
+	drawQuad(enviro, 27, 418, 96, 317, 149, 316, 64, 445, BUILDING);
+	drawQuad(enviro, 147, 316, 195, 319, 195, 370, 107, 372, BUILDING);
+	drawTriangle(enviro, 138, 308, 150, 317, 130, 318, BUILDING);
+	drawRec(enviro, 171, 383, 195, 440, BUILDING);
+	drawRec(enviro, 176, 367, 183, 387, BUILDING);
+}
+
+void rogers(Environment* enviro){
+	drawQuad(enviro, 0, 537, 43, 563, 32, 589, 0, 569, BUILDING);
+
+}
+
+void whiteTop(Environment* enviro){
+	drawQuad(enviro, 53, 648, 80, 664, 62, 697, 37, 679, BUILDING);
+	drawQuad(enviro, 0, 703, 37, 679, 63, 695, 0, 743, BUILDING);
+
 }
 

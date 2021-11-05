@@ -7,16 +7,19 @@
 
 
 /*** Declarations ***/
-//void initializeEnvironment(Environment* envion);
+
+//init
 void initializeEnvironment(GMU* gmu);
 void initializeGrass(Environment* enviro);
 void initializeBuildings(Environment* enviro);
-//void loadEnviroTypes(ySDL_Texture* enviro_types[AMOUNT_OF_ENVIRO_TYPES], SDL_Renderer *renderer);
+
+//load and display
 void loadEnviroTypes(GMU* gmu);
 void loadBackground(Environment* enviro);
-
 void displayEnvironment(GMU* gmu);
 void show(GMU* gmu, int type, int row, int col);
+
+//developer tools
 void drawRec(Environment* enviro, int x1, int x2, int y1, int y2, int type);
 void drawCircle(Environment* enviro, int center_x, int center_y, int radius, int type);
 void drawTriangle(Environment* envior, double x1, double y1, double x2, double y2, double x3, double y3, int type); 
@@ -25,6 +28,7 @@ int withinLine(double x1, double y1, double x2, double y2, double x3, double y3,
 int findMin(int a, int b, int c, int d);
 int findMax(int a, int b, int c, int d);
 
+//buildings
 void johnsonCenter(Environment* enviro);
 void davidKingHall(Environment* enviro);
 void planetaryHall(Environment* enviro);
@@ -51,5 +55,18 @@ void southsideDining(Environment* enviro);
 void skylineFitnessCenter(Environment* enviro);
 void theCommons(Environment* enviro);
 void commonwealthHall(Environment* enviro);
-
-
+void dominionHall(Environment* enviro);
+void northernNeck(Environment* enviro);
+void lectureHall(Environment* enviro);
+void eastBuilding(Environment* enviro);
+void krugHall(Environment* enviro);
+void finleyBuilding(Environment* enviro);
+void westBuilding(Environment* enviro);
+void studentUnionBuilding(Environment* enviro);
+void aquiaBuilding(Environment* enviro);
+void thompsonHall(Environment* enviro);
+void rappahannockParkingDeck(Environment* enviro);
+void alanAndSallyHall(Environment* enviro);
+void petersonHall(Environment* enviro);
+void rogers(Environment* enviro);
+void whiteTop(Environment* enviro);
