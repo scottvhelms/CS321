@@ -50,6 +50,6 @@ void theHub(Environment* enviro);
 void southsideDining(Environment* enviro);
 void skylineFitnessCenter(Environment* enviro);
 void theCommons(Environment* enviro);
-
+void commonwealthHall(Environment* enviro);
 
 

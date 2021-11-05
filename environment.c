@@ -23,11 +23,11 @@ void loadBackground(Environment* enviro){
 }
 
 void loadEnviroTypes(GMU* gmu){
-	gmu->enviro->enviro_types[1] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
-	gmu->enviro->enviro_types[2] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
-	gmu->enviro->enviro_types[3] = IMG_LoadTexture(gmu->game->renderer, "E_textures/building.png");
-	gmu->enviro->enviro_types[4] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
-	gmu->enviro->enviro_types[5] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
+	gmu->enviro->enviro_types[10] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
+	gmu->enviro->enviro_types[20] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
+	gmu->enviro->enviro_types[30] = IMG_LoadTexture(gmu->game->renderer, "E_textures/building.png");
+	gmu->enviro->enviro_types[40] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
+	gmu->enviro->enviro_types[50] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
 }
 
 
@@ -79,6 +79,7 @@ void initializeBuildings(Environment* enviro){
 	southsideDining(enviro);
 	skylineFitnessCenter(enviro);
 	theCommons(enviro);
+	commonwealthHall(enviro);
 
 
 }
@@ -483,6 +484,13 @@ void theCommons(Environment* enviro){
 	drawRec(enviro, 869, 22, 879, 47, BUILDING);
 	drawRec(enviro, 873, 19, 898, 30, BUILDING);
 	drawRec(enviro, 873, 0, 903, 20, BUILDING);
+}
 
+void commonwealthHall(Environment* enviro){
+	drawRec(enviro, 481, 79, 503, 127, BUILDING);
+	drawRec(enviro, 488, 125, 503, 133, BUILDING);
+	drawRec(enviro, 487, 57, 494, 80, BUILDING);
+	drawQuad(enviro, 508, 17, 529, 29, 504, 69, 484, 57, BUILDING);
+	drawQuad(enviro, 522, 17, 533, 25, 526, 34, 514, 27, BUILDING);
 }
 

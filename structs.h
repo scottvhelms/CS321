@@ -3,7 +3,7 @@
 /*Enviroment*/
 #define MAP_ROW 892
 #define MAP_COL 1861
-#define AMOUNT_OF_ENVIRO_TYPES 10
+#define AMOUNT_OF_ENVIRO_TYPES 60
 #define REND_ROW 128
 #define REND_COL 128
 /*Character*/
@@ -23,11 +23,11 @@
 
 /*Enviroment*/
 #define SIDEWALK 0
-#define GRASS 1
-#define WATER 2
-#define BUILDING 3
-#define STREET 4
-#define STAIRS 5
+#define GRASS 10
+#define STREET 20
+#define BUILDING 30 //for collision detection (if x >= 30) will collide
+#define WATER 40
+#define STAIRS 50
 
 
 /*Character*/
