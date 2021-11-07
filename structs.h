@@ -44,6 +44,7 @@
 typedef struct mapPoint{
 	int x;
 	int y;
+	struct mapPoint* next;
 }mapPoint;
 
 typedef struct{

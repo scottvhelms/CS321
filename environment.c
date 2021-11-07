@@ -38,9 +38,10 @@ void initializeLocations(Environment* enviro){
 	int row;
 	mapPoint* point;
 	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
-		point = (mapPoint*)malloc(sizeof(mapPoint));
+		point = (mapPoint*)malloc(sizeof(mapPoint)); //TODO error checking
 		point->x = 0;
 		point->y = 0;
+		point->next = NULL;
 		enviro->interactableLocations[row] = point;
 	}
 }
@@ -330,11 +331,15 @@ void johnsonCenter(Environment* enviro){ //0
 	drawCircle(enviro, 883, 554, 9, BUILDING);
 }
 
-void davidKingHall(Environment* enviro){
+void davidKingHall(Environment* enviro){//1
+	memcpy (enviro->buildingNames[1], "David King Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 877, 316, 986, 388, BUILDING);
 }
 
-void planetaryHall(Environment* enviro){
+void planetaryHall(Environment* enviro){//2
+	memcpy (enviro->buildingNames[2], "Planetary Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1034, 323, 1135, 376, BUILDING);
 	drawRec(enviro, 1103, 323, 1136, 380, BUILDING);
 	drawRec(enviro, 1053, 269, 1119, 328, BUILDING);
@@ -342,34 +347,46 @@ void planetaryHall(Environment* enviro){
 	drawCircle(enviro, 1028, 280, 11, BUILDING);
 }
 
-void exploratoryHall(Environment* enviro){
+void exploratoryHall(Environment* enviro){//3
+	memcpy (enviro->buildingNames[3], "Exploratory Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1118, 248, 1214, 306, BUILDING);
 	drawRec(enviro, 1113, 255, 1223, 299, BUILDING);
 }
 
-void enterpriseHall(Environment* enviro){
+void enterpriseHall(Environment* enviro){//4
+	memcpy (enviro->buildingNames[4], "Enterprise Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1203, 347, 1283, 387, BUILDING);
 	drawRec(enviro, 1205, 409, 1246, 467, BUILDING);
 	drawCircle(enviro, 1226, 455, 16, BUILDING);
 }
 
-void researchHall(Environment* enviro){
+void researchHall(Environment* enviro){//5
+	memcpy (enviro->buildingNames[5], "Research Hall", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1316, 352, 1416, 352, 1416, 386, 1316, 392, BUILDING);
 	drawQuad(enviro, 1416, 352, 1470, 352, 1470, 394, 1416, 386, BUILDING);
 	drawCircle(enviro, 1418, 400, 7, BUILDING); 
 }
 
-void shenandoahParkingDeck(Environment* enviro){
+void shenandoahParkingDeck(Environment* enviro){//6
+	memcpy (enviro->buildingNames[6], "Shenandoah Parking Deck", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1242, 201, 1400, 318, 1456, 244, 1304, 126, BUILDING);
 }
 
-void nguyenEngineeringBuilding(Environment* enviro){
+void nguyenEngineeringBuilding(Environment* enviro){//7
+	memcpy (enviro->buildingNames[7], "Nguyen Engineering Building", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1493, 519, 1515, 402, 1567, 379, 1540, 529, BUILDING);
 	drawQuad(enviro, 1577, 373, 1639, 424, 1603, 442, 1539, 392, BUILDING);
 	drawQuad(enviro, 1579, 420, 1549, 455, 1533, 432, 1560, 398, BUILDING);
 }
 
-void artAndDesignBuilding(Environment* enviro){
+void artAndDesignBuilding(Environment* enviro){//8
+	memcpy (enviro->buildingNames[8], "Art and Design Building", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1344, 517, 1433, 518, 1428, 584, 1350, 582, BUILDING);
 	drawRec(enviro, 1329, 531, 1352, 568, BUILDING);
 	drawRec(enviro, 1427, 526, 1444, 569, BUILDING);
@@ -378,7 +395,9 @@ void artAndDesignBuilding(Environment* enviro){
 	drawRec(enviro, 1323, 558, 1337, 578, BUILDING);
 }
 
-void libertySquareHousing(Environment* enviro){
+void libertySquareHousing(Environment* enviro){//9
+	memcpy (enviro->buildingNames[9], "Liberty Square Housing", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1536, 100, 1552, 71, 1616, 153, 1593, 171, BUILDING);
 	drawQuad(enviro, 1544, 61, 1612, 9, 1632, 32, 1561, 84, BUILDING);
 	drawQuad(enviro, 1630, 15, 1641, 28, 1627, 36, 1620, 20, BUILDING);
@@ -388,39 +407,51 @@ void libertySquareHousing(Environment* enviro){
 	drawQuad(enviro, 1715, 183, 1729, 183, 1731, 195, 1718, 201, BUILDING);
 }
 
-void aquaticAndFitnessCenter(Environment* enviro){
+void aquaticAndFitnessCenter(Environment* enviro){//10
+	memcpy (enviro->buildingNames[10], "Aquatic and Fitness Center", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 1724, 364, 1805, 353, 1813, 416, 1730, 426, BUILDING);
 	drawQuad(enviro, 1729, 422, 1838, 410, 1847, 469, 1736, 483, BUILDING);
 	drawQuad(enviro, 1717, 484, 1837, 468, 1833, 474, 1721, 507, BUILDING);
 	drawQuad(enviro, 1707, 371, 1700, 349, 1749, 326, 1765, 361, BUILDING);
 	drawQuad(enviro, 1800, 364, 1825, 362, 1835, 409, 1808, 418, BUILDING);
 }
-void innovationHall(Environment* enviro){
+void innovationHall(Environment* enviro){//11
+	memcpy (enviro->buildingNames[11], "Innovation Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1203, 572, 1239, 684, BUILDING);
 	drawRec(enviro, 1236, 639, 1280, 685, BUILDING);
 	drawRec(enviro, 1234, 681, 1271, 690, BUILDING);
 	drawRec(enviro, 1203, 562, 1218, 572, BUILDING);
 }
 
-void musicAndTheaterBuilding(Environment* enviro){
+void musicAndTheaterBuilding(Environment* enviro){//12
+	memcpy (enviro->buildingNames[12], "Music and Theater Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1038, 615, 1083, 668, BUILDING);
 	drawRec(enviro, 1038, 615, 1097, 654, BUILDING);
 	drawRec(enviro, 1011, 620, 1047, 660, BUILDING);
 	drawRec(enviro, 1093, 638, 1112, 648, BUILDING);
 }
 
-void collegeHall(Environment* enviro){
+void collegeHall(Environment* enviro){//13
+	memcpy (enviro->buildingNames[13], "College Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1110, 629, 1132, 698, BUILDING);
 	drawRec(enviro, 1128, 643, 1137, 654, BUILDING);
 	drawRec(enviro, 1117, 693, 1126, 709, BUILDING);
 }
 
-void buchananHall(Environment* enviro){
+void buchananHall(Environment* enviro){//14
+	memcpy (enviro->buildingNames[14], "Buchanan Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1068, 710, 1138, 783, BUILDING);
 	drawRec(enviro, 1110, 706, 1138, 721, BUILDING);
 }
 
-void performingArtsBuilding(Environment* enviro){
+void performingArtsBuilding(Environment* enviro){//15
+	memcpy (enviro->buildingNames[15], "Performing Arts Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 876, 647, 985, 729, BUILDING);
 	drawRec(enviro, 878, 613, 961, 651, BUILDING);
 	drawQuad(enviro, 872, 601, 913, 612, 909, 641, 868, 636, BUILDING);
@@ -429,13 +460,17 @@ void performingArtsBuilding(Environment* enviro){
 	drawQuad(enviro, 947, 603, 969, 610, 965, 640, 940, 639, BUILDING);
 }
 
-void concertHall(Environment* enviro){
+void concertHall(Environment* enviro){//16
+	memcpy (enviro->buildingNames[16], "Concert Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 890, 748, 970, 838, BUILDING);
 	drawRec(enviro, 881, 799, 970, 838, BUILDING);
 	drawRec(enviro, 877, 734, 970, 758, BUILDING);
 }
 
-void masonPondParkingDeck(Environment* enviro){
+void masonPondParkingDeck(Environment* enviro){//17
+	memcpy (enviro->buildingNames[17], "Mason Pond Parking Deck", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 717, 685, 808, 832, BUILDING);
 	drawRec(enviro, 700, 686, 719, 712, BUILDING);
 	drawRec(enviro, 709, 823, 723, 837, SIDEWALK);
@@ -444,14 +479,18 @@ void masonPondParkingDeck(Environment* enviro){
 	drawRec(enviro, 714, 682, 721, 694, SIDEWALK);
 }
 
-void harrisTheater(Environment* enviro){
+void harrisTheater(Environment* enviro){//18
+	memcpy (enviro->buildingNames[18], "Harris Theather", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 696, 545, 720, 600, BUILDING);
 	drawRec(enviro, 708, 551, 767, 589, BUILDING);
 	drawRec(enviro, 752, 566, 774, 616, BUILDING);
 	drawRec(enviro, 754, 455, 816, 570, BUILDING);
 }
 
-void horizonHall(Environment* enviro){
+void horizonHall(Environment* enviro){//19
+	memcpy (enviro->buildingNames[19], "Horizon Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 669, 394, 785, 459, BUILDING);
 	drawCircle(enviro, 790, 432, 20, BUILDING);
 	drawTriangle(enviro, 783, 405, 815, 455, 764, 462, BUILDING);
@@ -459,7 +498,9 @@ void horizonHall(Environment* enviro){
 	drawRec(enviro, 655, 425, 673, 428, SIDEWALK);
 }
 
-void fenwickLibrary(Environment* enviro){
+void fenwickLibrary(Environment* enviro){//20
+	memcpy (enviro->buildingNames[20], "Fenwick Library", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 529, 270, 583, 325, BUILDING);
 	drawRec(enviro, 579, 280, 618, 316, BUILDING);
 	drawRec(enviro, 591, 273, 618, 316, BUILDING);
@@ -471,7 +512,9 @@ void fenwickLibrary(Environment* enviro){
 	drawRec(enviro, 640, 223, 657, 232, BUILDING);
 }
 
-void theHub(Environment* enviro){
+void theHub(Environment* enviro){//21
+	memcpy (enviro->buildingNames[21], "The Hub", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 1016, 62, 1122, 141, BUILDING);
 	drawRec(enviro, 1016, 62, 1074, 157, BUILDING);
 	drawRec(enviro, 996, 76, 1030, 137, BUILDING);
@@ -482,7 +525,9 @@ void theHub(Environment* enviro){
 	drawQuad(enviro, 956, 178, 982, 206, 995, 198, 968, 169, BUILDING);
 }
 
-void southsideDining(Environment* enviro){
+void southsideDining(Environment* enviro){//22
+	memcpy (enviro->buildingNames[22], "South Side Dining", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 861, 99, 882, 115, BUILDING);
 	drawRec(enviro, 856, 114, 923, 175, BUILDING);
 	drawRec(enviro, 861, 102, 923, 175, BUILDING);
@@ -491,14 +536,18 @@ void southsideDining(Environment* enviro){
 	drawRec(enviro, 895, 170, 920, 185, BUILDING);
 }
 
-void skylineFitnessCenter(Environment* enviro){
+void skylineFitnessCenter(Environment* enviro){//23
+	memcpy (enviro->buildingNames[23], "Skyline Fitness Center", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 796, 103, 828, 150, BUILDING);
 	drawRec(enviro, 796, 140, 870, 166, BUILDING);
 	drawRec(enviro, 790, 150, 870, 174, BUILDING);
 
 }
 
-void theCommons(Environment* enviro){
+void theCommons(Environment* enviro){//24
+	memcpy (enviro->buildingNames[24], "The Commons", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 738, 90, 771, 167, BUILDING);
 	drawRec(enviro, 749, 163, 771, 173, BUILDING);
 	drawRec(enviro, 771, 109, 792, 132, BUILDING);
@@ -530,7 +579,9 @@ void theCommons(Environment* enviro){
 	drawRec(enviro, 873, 0, 903, 20, BUILDING);
 }
 
-void commonwealthHall(Environment* enviro){
+void commonwealthHall(Environment* enviro){//25
+	memcpy (enviro->buildingNames[25], "Commonwealth Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 481, 79, 503, 127, BUILDING);
 	drawRec(enviro, 488, 125, 503, 133, BUILDING);
 	drawRec(enviro, 487, 57, 494, 80, BUILDING);
@@ -538,7 +589,9 @@ void commonwealthHall(Environment* enviro){
 	drawQuad(enviro, 522, 17, 533, 25, 526, 34, 514, 27, BUILDING);
 }
 
-void dominionHall(Environment* enviro){
+void dominionHall(Environment* enviro){//26
+	memcpy (enviro->buildingNames[26], "Dominion Hall", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 563, 27, 609, 5, 616, 27, 570, 46, BUILDING);
 	drawQuad(enviro, 560, 34, 568, 31, 570, 35, 562, 39, BUILDING);
 	drawQuad(enviro, 628, 0, 675, 9, 674, 31, 626, 26, BUILDING);
@@ -546,7 +599,9 @@ void dominionHall(Environment* enviro){
 	drawRec(enviro, 610, 18, 633, 23, BUILDING);
 }
 
-void northernNeck(Environment* enviro){
+void northernNeck(Environment* enviro){//27
+	memcpy (enviro->buildingNames[27], "Northern Neck", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 403, 14, 449, 43, 430, 69, 388, 42, BUILDING);
 	drawQuad(enviro, 397, 39, 427, 58, 384, 125, 360, 94, BUILDING);
 	drawQuad(enviro, 355, 115, 449, 120, 448, 156, 351, 145, BUILDING);
@@ -554,28 +609,40 @@ void northernNeck(Environment* enviro){
 	drawRec(enviro, 412, 149, 431, 165, BUILDING);
 }
 
-void lectureHall(Environment* enviro){
+void lectureHall(Environment* enviro){//28
+	memcpy (enviro->buildingNames[28], "Lecture Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 416, 239, 491, 266, BUILDING);
 }
 
-void eastBuilding(Environment* enviro){
+void eastBuilding(Environment* enviro){//29
+	memcpy (enviro->buildingNames[29], "East Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 410, 321, 443, 390, BUILDING);
 }
 
-void krugHall(Environment* enviro){
+void krugHall(Environment* enviro){//30
+	memcpy (enviro->buildingNames[30], "Krug Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 478, 385, 515, 489, BUILDING);
 }
 
-void finleyBuilding(Environment* enviro){
+void finleyBuilding(Environment* enviro){//31
+	memcpy (enviro->buildingNames[31], "Finley Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 359, 385, 391, 489, BUILDING);
 }
 
-void westBuilding(Environment* enviro){
+void westBuilding(Environment* enviro){//32
+	memcpy (enviro->buildingNames[32], "West Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 428, 484, 459, 540, BUILDING);
 	drawRec(enviro, 437, 537, 458, 546, BUILDING);
 }
 
-void studentUnionBuilding(Environment* enviro){
+void studentUnionBuilding(Environment* enviro){//33
+	memcpy (enviro->buildingNames[33], "Student Union Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 565, 583, 651, 626, BUILDING);
 	drawRec(enviro, 594, 624, 615, 632, BUILDING);
 	drawRec(enviro, 558, 503, 662, 566, BUILDING);
@@ -587,7 +654,9 @@ void studentUnionBuilding(Environment* enviro){
 	drawRec(enviro, 576, 495, 596, 525, BUILDING);
 }
 
-void aquiaBuilding(Environment* enviro){
+void aquiaBuilding(Environment* enviro){//34
+	memcpy (enviro->buildingNames[34], "Aquia Building", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 476, 522, 513, 615, BUILDING);
 	drawRec(enviro, 482, 510, 499, 528, BUILDING);
 	drawRec(enviro, 476, 532, 527, 615, BUILDING);
@@ -595,23 +664,31 @@ void aquiaBuilding(Environment* enviro){
 	drawRec(enviro, 506, 621, 522, 640, BUILDING);
 }
 
-void thompsonHall(Environment* enviro){
+void thompsonHall(Environment* enviro){//35
+	memcpy (enviro->buildingNames[35], "Thompson Hall", BUILDING_NAME_LENGTH);
+
 	drawRec(enviro, 300, 558, 396, 611, BUILDING);
 	drawRec(enviro, 296, 495, 329, 560, BUILDING);
 	drawRec(enviro, 309, 488, 318, 500, BUILDING);
 	drawRec(enviro, 394, 574, 410, 602, BUILDING);
 }
 
-void rappahannockParkingDeck(Environment* enviro){
+void rappahannockParkingDeck(Environment* enviro){//36
+	memcpy (enviro->buildingNames[36], "Rappahannock Parking Deck", BUILDING_NAME_LENGTH);
+
 	drawTriangle(enviro, 212, 0, 358, 0, 327, 39, BUILDING);
 }
 
-void alanAndSallyHall(Environment* enviro){
+void alanAndSallyHall(Environment* enviro){//37
+	memcpy (enviro->buildingNames[37], "Alan and Sally Hall", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 111, 30, 159, 48, 112, 183, 60, 162, BUILDING);
 	drawQuad(enviro, 122, 136, 142, 142, 126, 187, 101, 179, BUILDING);
 }
 
-void petersonHall(Environment* enviro){
+void petersonHall(Environment* enviro){//38
+	memcpy (enviro->buildingNames[38], "Peterson Hall", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 27, 418, 96, 317, 149, 316, 64, 445, BUILDING);
 	drawQuad(enviro, 147, 316, 195, 319, 195, 370, 107, 372, BUILDING);
 	drawTriangle(enviro, 138, 308, 150, 317, 130, 318, BUILDING);
@@ -619,12 +696,16 @@ void petersonHall(Environment* enviro){
 	drawRec(enviro, 176, 367, 183, 387, BUILDING);
 }
 
-void rogers(Environment* enviro){
+void rogers(Environment* enviro){//39
+	memcpy (enviro->buildingNames[39], "Rogers", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 0, 537, 43, 563, 32, 589, 0, 569, BUILDING);
 
 }
 
-void whiteTop(Environment* enviro){
+void whiteTop(Environment* enviro){//40
+	memcpy (enviro->buildingNames[40], "White Top", BUILDING_NAME_LENGTH);
+
 	drawQuad(enviro, 53, 648, 80, 664, 62, 697, 37, 679, BUILDING);
 	drawQuad(enviro, 0, 703, 37, 679, 63, 695, 0, 743, BUILDING);
 
