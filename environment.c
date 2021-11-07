@@ -1,6 +1,6 @@
 #include "environment.h"
 
-
+/***INIT and LOAD***/
 void initializeEnvironment(GMU *gmu){
 	//initialize map array to all sidewalk
 	//load the tiles
@@ -8,8 +8,12 @@ void initializeEnvironment(GMU *gmu){
 	loadEnviroTypes(gmu);
 	
 	//loading map items
+	initializeLocations(gmu->enviro);
+	initializeNames(gmu->enviro);
 	initializeGrass(gmu->enviro);
 	initializeBuildings(gmu->enviro);
+	initializeStreets(gmu->enviro);
+
 }
 
 void loadBackground(Environment* enviro){
@@ -24,32 +28,34 @@ void loadBackground(Environment* enviro){
 
 void loadEnviroTypes(GMU* gmu){
 	gmu->enviro->enviro_types[10] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
-	gmu->enviro->enviro_types[20] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
+	gmu->enviro->enviro_types[20] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
 	gmu->enviro->enviro_types[30] = IMG_LoadTexture(gmu->game->renderer, "E_textures/building.png");
-	gmu->enviro->enviro_types[40] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
+	gmu->enviro->enviro_types[40] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
 	gmu->enviro->enviro_types[50] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
 }
 
+void initializeLocations(Environment* enviro){
+	int row;
+	mapPoint* point;
+	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
+		point = (mapPoint*)malloc(sizeof(mapPoint));
+		point->x = 0;
+		point->y = 0;
+		enviro->interactableLocations[row] = point;
+	}
+}
+
+void initializeNames(Environment* enviro){
+	int row, col;
+	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
+		for (col = 0; col<BUILDING_NAME_LENGTH; ++col){
+			enviro->buildingNames[row][col] = '\0'; 	
+		}
+	}
+
+}
 
 void initializeGrass(Environment* enviro){
-//	drawRec(enviro, 400, 455, 924, 990, GRASS);
-//	drawRec(enviro, 400, 455, 1010, 1090, GRASS);
-//	drawRec(enviro, 330, 370, 924, 990, GRASS);
-//	drawRec(enviro, 330, 370, 1010, 1090, GRASS);
-//	drawCircle(enviro, 1005, 434, 14, GRASS);
-//	drawTriangle(enviro, 1010, 420, 1000, 440, 1020, 430, GRASS);
-//	drawTriangle(enviro, 970, 420, 970, 440, 990, 430, GRASS);
-//	drawTriangle(enviro, 1050, 440, 1030, 440, 1040, 420, GRASS);
-//	drawQuad(enviro, 1000, 420, 1010, 430, 1020, 420, 1010, 410, GRASS);
-
-//	enviro->map[420][1010] = WATER;
-//	enviro->map[440][1000] = WATER;
-//	enviro->map[430][1020] = WATER;
-
-	
-//	drawTriangle(enviro, 1010, 420, 1000, 440, 1020, 430, GRASS);
-//	drawTriangle(enviro, 1010, 420, 1000, 440, 1020, 430, GRASS);
-
 
 }
 
@@ -97,6 +103,24 @@ void initializeBuildings(Environment* enviro){
 	whiteTop(enviro);
 }
 
+void initializeStreets(Environment* enviro){
+	//roads
+	drawQuad(enviro, 84, 0, 112, 0, 0, 323, 0, 241, STREET); //1
+	drawQuad(enviro, 0, 155, 239, 242, 233, 276, 0, 186, STREET); //2
+	drawQuad(enviro, 178, 0, 346, 64, 339, 75, 135, 0, STREET); //3
+	drawQuad(enviro, 285, 185, 794, 191, 794, 200, 279, 195, STREET); //4
+	drawQuad(enviro, 433, 646, 683, 640, 684, 655, 438, 656, STREET); //5
+	drawQuad(enviro, 885, 845, 1106, 846, 1104, 861, 890, 857, STREET); //6
+	drawQuad(enviro, 1217, 842, 1533, 579, 1542, 595, 1227, 840, STREET); //7
+	drawQuad(enviro, 1345, 785, 1546, 893, 1514, 893, 1336, 795, STREET); //8
+
+	//parking lots
+	drawQuad(enviro, 1428, 811, 1681, 611, 1777, 893, 1573, 893, STREET); //1
+}
+
+
+/***Display***/
+
 void displayEnvironment(GMU* gmu){
 	int row, col;
 	for (row = gmu->renderOffset.y; row<(REND_ROW+gmu->renderOffset.y); ++row){
@@ -142,6 +166,10 @@ void show(GMU* gmu, int type, int row, int col){
 				&destination);
 
 }
+
+
+
+/***TOOLS***/
 
 
 void drawRec(Environment* enviro, int x1, int y1, int x2, int y2, int type){
@@ -288,7 +316,10 @@ int findMax(int a, int b, int c, int d){
 }
 
 
-void johnsonCenter(Environment* enviro){
+void johnsonCenter(Environment* enviro){ //0
+	memcpy (enviro->buildingNames[0], "Johnson Center", BUILDING_NAME_LENGTH);
+
+
 	drawRec(enviro, 875, 458, 1090, 562, BUILDING);
 	drawTriangle(enviro, 876, 457, 904, 455, 874, 477, SIDEWALK);
 	drawTriangle(enviro, 875, 540, 898, 563, 875, 561, SIDEWALK);

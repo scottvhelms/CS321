@@ -28,7 +28,8 @@
 #define BUILDING 30 //for collision detection (if x >= 30) will collide
 #define WATER 40
 #define STAIRS 50
-
+#define NUMBER_OF_BUILDINGS 50
+#define BUILDING_NAME_LENGTH 35
 
 /*Character*/
 #define UP 0
@@ -40,9 +41,16 @@
 
 /*** Stucts ***/
 /*Enviroment*/
+typedef struct mapPoint{
+	int x;
+	int y;
+}mapPoint;
+
 typedef struct{
 	int map[MAP_ROW][MAP_COL];
 	SDL_Texture* enviro_types[AMOUNT_OF_ENVIRO_TYPES];
+	char buildingNames[NUMBER_OF_BUILDINGS][BUILDING_NAME_LENGTH];
+	struct mapPoint* interactableLocations[NUMBER_OF_BUILDINGS];
 }Environment;
 
 /*Character*/
