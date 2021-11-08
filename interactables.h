@@ -36,5 +36,6 @@ typedef struct {
 } Interactable;
 
 /*Interactable Methods*/
+void initializeInteractables();
 void move(Interactable interactable, int newPX, int newPY);
 void act(Interactable interactable);
