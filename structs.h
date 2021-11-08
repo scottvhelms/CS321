@@ -1,7 +1,7 @@
 #include "libraries.h"
 /***DEFINES***/
 /*Enviroment*/
-#define MAP_ROW 892
+#define MAP_ROW 893
 #define MAP_COL 1861
 #define AMOUNT_OF_ENVIRO_TYPES 60
 #define REND_ROW 128
