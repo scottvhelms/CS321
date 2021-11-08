@@ -907,6 +907,38 @@ void skylineFitnessCenter(Environment* enviro){//23
 void theCommons(Environment* enviro){//24
 	memcpy (enviro->buildingNames[24], "The Commons", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[24]->x = 740;
+	enviro->interactableLocations[24]->y = 174;
+	enviro->interactableLocations[24]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[24]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[24]->next->x = 708;
+	enviro->interactableLocations[24]->next->y = 173;
+	enviro->interactableLocations[24]->next->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[24]->next->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 3
+	enviro->interactableLocations[24]->next->next->x = 617;
+	enviro->interactableLocations[24]->next->next->y = 172;
+	enviro->interactableLocations[24]->next->next->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[24]->next->next->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 4
+	enviro->interactableLocations[24]->next->next->next->x = 540;
+	enviro->interactableLocations[24]->next->next->next->y = 170;
+	enviro->interactableLocations[24]->next->next->next->next = NULL;
+
 	drawRec(enviro, 738, 90, 771, 167, BUILDING);
 	drawRec(enviro, 749, 163, 771, 173, BUILDING);
 	drawRec(enviro, 771, 109, 792, 132, BUILDING);
@@ -941,6 +973,11 @@ void theCommons(Environment* enviro){//24
 void commonwealthHall(Environment* enviro){//25
 	memcpy (enviro->buildingNames[25], "Commonwealth Hall", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[25]->x = 518;
+	enviro->interactableLocations[25]->y = 78;
+	enviro->interactableLocations[25]->next = NULL;
+
 	drawRec(enviro, 481, 79, 503, 127, BUILDING);
 	drawRec(enviro, 488, 125, 503, 133, BUILDING);
 	drawRec(enviro, 487, 57, 494, 80, BUILDING);
@@ -950,6 +987,11 @@ void commonwealthHall(Environment* enviro){//25
 
 void dominionHall(Environment* enviro){//26
 	memcpy (enviro->buildingNames[26], "Dominion Hall", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[26]->x = 556;
+	enviro->interactableLocations[26]->y = 16;
+	enviro->interactableLocations[26]->next = NULL;
 
 	drawQuad(enviro, 563, 27, 609, 5, 616, 27, 570, 46, BUILDING);
 	drawQuad(enviro, 560, 34, 568, 31, 570, 35, 562, 39, BUILDING);
@@ -961,6 +1003,20 @@ void dominionHall(Environment* enviro){//26
 void northernNeck(Environment* enviro){//27
 	memcpy (enviro->buildingNames[27], "Northern Neck", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[27]->x = 409;
+	enviro->interactableLocations[27]->y = 169;
+	enviro->interactableLocations[27]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[27]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[27]->next->x = 350;
+	enviro->interactableLocations[27]->next->y = 105;
+	enviro->interactableLocations[27]->next->next = NULL;
+
 	drawQuad(enviro, 403, 14, 449, 43, 430, 69, 388, 42, BUILDING);
 	drawQuad(enviro, 397, 39, 427, 58, 384, 125, 360, 94, BUILDING);
 	drawQuad(enviro, 355, 115, 449, 120, 448, 156, 351, 145, BUILDING);
@@ -971,11 +1027,39 @@ void northernNeck(Environment* enviro){//27
 void lectureHall(Environment* enviro){//28
 	memcpy (enviro->buildingNames[28], "Lecture Hall", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[28]->x = 459;
+	enviro->interactableLocations[28]->y = 235;
+	enviro->interactableLocations[28]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[28]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[28]->next->x = 460;
+	enviro->interactableLocations[28]->next->y = 270;
+	enviro->interactableLocations[28]->next->next = NULL;
+
 	drawRec(enviro, 416, 239, 491, 266, BUILDING);
 }
 
 void eastBuilding(Environment* enviro){//29
 	memcpy (enviro->buildingNames[29], "East Building", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[29]->x = 424;
+	enviro->interactableLocations[29]->y = 318;
+	enviro->interactableLocations[29]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[29]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[29]->next->x = 402;
+	enviro->interactableLocations[29]->next->y = 379;
+	enviro->interactableLocations[29]->next->next = NULL;
 
 	drawRec(enviro, 410, 321, 443, 390, BUILDING);
 }
@@ -983,11 +1067,39 @@ void eastBuilding(Environment* enviro){//29
 void krugHall(Environment* enviro){//30
 	memcpy (enviro->buildingNames[30], "Krug Hall", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[30]->x = 507;
+	enviro->interactableLocations[30]->y = 382;
+	enviro->interactableLocations[30]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[30]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[30]->next->x = 469;
+	enviro->interactableLocations[30]->next->y = 474;
+	enviro->interactableLocations[30]->next->next = NULL;
+
 	drawRec(enviro, 478, 385, 515, 489, BUILDING);
 }
 
 void finleyBuilding(Environment* enviro){//31
 	memcpy (enviro->buildingNames[31], "Finley Building", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[31]->x = 353;
+	enviro->interactableLocations[31]->y = 415;
+	enviro->interactableLocations[31]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[31]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[31]->next->x = 397;
+	enviro->interactableLocations[31]->next->y = 414;
+	enviro->interactableLocations[31]->next->next = NULL;
 
 	drawRec(enviro, 359, 385, 391, 489, BUILDING);
 }
@@ -995,12 +1107,31 @@ void finleyBuilding(Environment* enviro){//31
 void westBuilding(Environment* enviro){//32
 	memcpy (enviro->buildingNames[32], "West Building", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[32]->x = 451;
+	enviro->interactableLocations[32]->y = 477;
+	enviro->interactableLocations[32]->next = NULL;
+
 	drawRec(enviro, 428, 484, 459, 540, BUILDING);
 	drawRec(enviro, 437, 537, 458, 546, BUILDING);
 }
 
 void studentUnionBuilding(Environment* enviro){//33
 	memcpy (enviro->buildingNames[33], "Student Union Building", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[33]->x = 616;
+	enviro->interactableLocations[33]->y = 634;
+	enviro->interactableLocations[33]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[33]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[33]->next->x = 600;
+	enviro->interactableLocations[33]->next->y = 493;
+	enviro->interactableLocations[33]->next->next = NULL;
 
 	drawRec(enviro, 565, 583, 651, 626, BUILDING);
 	drawRec(enviro, 594, 624, 615, 632, BUILDING);
@@ -1016,6 +1147,21 @@ void studentUnionBuilding(Environment* enviro){//33
 void aquiaBuilding(Environment* enviro){//34
 	memcpy (enviro->buildingNames[34], "Aquia Building", BUILDING_NAME_LENGTH);
 
+
+	//loc 1
+	enviro->interactableLocations[34]->x = 490;
+	enviro->interactableLocations[34]->y = 503;
+	enviro->interactableLocations[34]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[34]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[34]->next->x = 516;
+	enviro->interactableLocations[34]->next->y = 643;
+	enviro->interactableLocations[34]->next->next = NULL;
+
 	drawRec(enviro, 476, 522, 513, 615, BUILDING);
 	drawRec(enviro, 482, 510, 499, 528, BUILDING);
 	drawRec(enviro, 476, 532, 527, 615, BUILDING);
@@ -1026,6 +1172,30 @@ void aquiaBuilding(Environment* enviro){//34
 void thompsonHall(Environment* enviro){//35
 	memcpy (enviro->buildingNames[35], "Thompson Hall", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[35]->x = 323;
+	enviro->interactableLocations[35]->y = 490;
+	enviro->interactableLocations[35]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[35]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[35]->next->x = 294;
+	enviro->interactableLocations[35]->next->y = 585;
+	enviro->interactableLocations[35]->next->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[35]->next->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 3
+	enviro->interactableLocations[35]->next->next->x = 334;
+	enviro->interactableLocations[35]->next->next->y = 546;
+	enviro->interactableLocations[35]->next->next->next = NULL;
+
+
 	drawRec(enviro, 300, 558, 396, 611, BUILDING);
 	drawRec(enviro, 296, 495, 329, 560, BUILDING);
 	drawRec(enviro, 309, 488, 318, 500, BUILDING);
@@ -1035,11 +1205,21 @@ void thompsonHall(Environment* enviro){//35
 void rappahannockParkingDeck(Environment* enviro){//36
 	memcpy (enviro->buildingNames[36], "Rappahannock Parking Deck", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[36]->x = 332;
+	enviro->interactableLocations[36]->y = 55;
+	enviro->interactableLocations[36]->next = NULL;
+
 	drawTriangle(enviro, 212, 0, 358, 0, 327, 39, BUILDING);
 }
 
 void alanAndSallyHall(Environment* enviro){//37
 	memcpy (enviro->buildingNames[37], "Alan and Sally Hall", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[37]->x = 146;
+	enviro->interactableLocations[37]->y = 139;
+	enviro->interactableLocations[37]->next = NULL;
 
 	drawQuad(enviro, 111, 30, 159, 48, 112, 183, 60, 162, BUILDING);
 	drawQuad(enviro, 122, 136, 142, 142, 126, 187, 101, 179, BUILDING);
@@ -1047,6 +1227,29 @@ void alanAndSallyHall(Environment* enviro){//37
 
 void petersonHall(Environment* enviro){//38
 	memcpy (enviro->buildingNames[38], "Peterson Hall", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[38]->x = 207;
+	enviro->interactableLocations[38]->y = 434;
+	enviro->interactableLocations[38]->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[38]->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 2
+	enviro->interactableLocations[38]->next->x = 209;
+	enviro->interactableLocations[38]->next->y = 356;
+	enviro->interactableLocations[38]->next->next = (mapPoint*)malloc(sizeof(mapPoint));
+	if(enviro->interactableLocations[38]->next->next == NULL){
+		printf("Malloc Failure");
+		exit(1);
+	} 
+
+	//loc 3
+	enviro->interactableLocations[38]->next->next->x = 140;
+	enviro->interactableLocations[38]->next->next->y = 383;
+	enviro->interactableLocations[38]->next->next->next = NULL;
 
 	drawQuad(enviro, 27, 418, 96, 317, 149, 316, 64, 445, BUILDING);
 	drawQuad(enviro, 147, 316, 195, 319, 195, 370, 107, 372, BUILDING);
@@ -1058,12 +1261,22 @@ void petersonHall(Environment* enviro){//38
 void rogers(Environment* enviro){//39
 	memcpy (enviro->buildingNames[39], "Rogers", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[39]->x = 53;
+	enviro->interactableLocations[39]->y = 552;
+	enviro->interactableLocations[39]->next = NULL;
+
 	drawQuad(enviro, 0, 537, 43, 563, 32, 589, 0, 569, BUILDING);
 
 }
 
 void whiteTop(Environment* enviro){//40
 	memcpy (enviro->buildingNames[40], "White Top", BUILDING_NAME_LENGTH);
+
+	//loc 1
+	enviro->interactableLocations[40]->x = 88;
+	enviro->interactableLocations[40]->y = 680;
+	enviro->interactableLocations[40]->next = NULL;
 
 	drawQuad(enviro, 53, 648, 80, 664, 62, 697, 37, 679, BUILDING);
 	drawQuad(enviro, 0, 703, 37, 679, 63, 695, 0, 743, BUILDING);
@@ -1072,9 +1285,12 @@ void whiteTop(Environment* enviro){//40
 void parkingServices(Environment* enviro){//41
 	memcpy (enviro->buildingNames[41], "Parking Services", BUILDING_NAME_LENGTH);
 
+	//loc 1
+	enviro->interactableLocations[41]->x = 1285;
+	enviro->interactableLocations[41]->y = 303;
+	enviro->interactableLocations[41]->next = NULL;
+
 	drawRec(enviro, 1291, 292, 1316, 317, BUILDING);
 	drawQuad(enviro, 1308, 292, 1322, 289, 1336, 299, 1312, 315, BUILDING);
-
-
 
 }
