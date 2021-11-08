@@ -97,8 +97,9 @@ void getInput(GMU* gmu){
 				break;
 			case SDL_KEYDOWN://:
 				switch(event.key.keysym.sym){
+					
 					case SDLK_UP:
-						if(gmu->renderOffset.y != 0){
+						if(gmu->renderOffset.y != 0 && gmu && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos-1] < 30){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
 						}
 		
@@ -106,7 +107,7 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_DOWN:
-						if(gmu->renderOffset.y != MAP_ROW-1){
+						if(gmu->renderOffset.y != MAP_ROW-1 && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos+1] < 30){
 							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;	
 						}
 
@@ -115,7 +116,7 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_LEFT:
-						if(gmu->renderOffset.x != 0){
+						if(gmu->renderOffset.x != 0 && gmu->enviro->map[gmu->character->x_pos-1][gmu->character->y_pos] < 30){
 							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
 						}
 											
@@ -125,7 +126,7 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_RIGHT:
-						if(gmu->renderOffset.x != MAP_COL-1){
+						if(gmu->renderOffset.x != MAP_COL-1 && gmu->enviro->map[gmu->character->x_pos+1][gmu->character->y_pos] < 30){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
 						}
 
