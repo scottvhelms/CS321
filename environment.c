@@ -160,17 +160,15 @@ void displayEnvironment(GMU* gmu){
 		}
 
 	}
-	displayBuildingName(gmu);
 
 	//displaying building name (if Applicable)
-//	displayBuildingName(gmu);
+	displayBuildingName(gmu);
 
 
 }
 
 void show(GMU* gmu, int type, int row, int col){
 
-//	displayBuildingName(gmu);
 
 	SDL_Rect destination;
 	SDL_QueryTexture(	gmu->enviro->enviro_types[type], 
@@ -193,6 +191,7 @@ void show(GMU* gmu, int type, int row, int col){
 void displayBuildingName(GMU* gmu){
 	int row;
 	mapPoint* current;
+	//32 grid around the robots current pos for interactable detection
 	int x_high = gmu->character->x_map_pos + 32;
 	int x_low =  gmu->character->x_map_pos - 32;
 	int y_high = gmu->character->y_map_pos + 32;
@@ -207,16 +206,12 @@ void displayBuildingName(GMU* gmu){
 
 				showName(gmu, gmu->enviro->buildingNames[row]);
 				return;
+
 			} else {
 				current = current->next;
 			}
 		}
 	}
-
-
-
-//	showName(gmu, "keek");
-
 
 }
 
@@ -242,13 +237,11 @@ void showName(GMU* gmu, char* text){
 	SDL_Texture *word_texture = SDL_CreateTextureFromSurface(gmu->game->renderer, word_surface);
 	SDL_FreeSurface(word_surface);
 
+	//centering text
 	name.x = CENTER - (strlen(text)/2)*22;
 
 	SDL_QueryTexture(word_texture, NULL, NULL, &name.w, &name.h);	
 	SDL_RenderCopy(gmu->game->renderer, word_texture, NULL, &name);
-
-
-
 }
 /***TOOLS***/
 
