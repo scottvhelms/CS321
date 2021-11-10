@@ -28,6 +28,9 @@ void initCharacter(GMU* gmu) {
 	gmu->character->face = 0;
 	gmu->character->x_pos = 64*8;
 	gmu->character->y_pos = 64*8;
+	gmu->character->x_map_pos = START_COL; 
+	gmu->character->y_map_pos = START_ROW;
+
 	
 	loadFaceTypes(gmu);
 

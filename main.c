@@ -70,6 +70,11 @@ void initializeSDL(Game* game){
 
 	//init images to use png and jpg
 	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
+
+	if(TTF_Init() < 0){
+		printf("TTF Failed to initialize");
+		exit(1);
+	}
 }
 
 //close, destroys and frees as needed
@@ -78,6 +83,8 @@ void endGame(GMU* gmu){
 	SDL_DestroyWindow(gmu->game->window);
 	// close renderer
 	SDL_DestroyRenderer(gmu->game->renderer);
+	// close TTF
+	TTF_Quit();
 	//quit program
 	SDL_Quit();
 
@@ -103,6 +110,7 @@ void getInput(GMU* gmu){
 					case SDLK_UP:
 						if(gmu->renderOffset.y != 0 && gmu && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos-1] < 30){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
+							gmu->character->y_map_pos -= 1;
 						}
 		
 						gmu->character->face = 0;
@@ -110,7 +118,9 @@ void getInput(GMU* gmu){
 						break;
 					case SDLK_DOWN:
 						if(gmu->renderOffset.y != MAP_ROW-1 && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos+1] < 30){
-							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;	
+							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;
+							gmu->character->y_map_pos += 1;
+
 						}
 
 		
@@ -120,16 +130,18 @@ void getInput(GMU* gmu){
 					case SDLK_LEFT:
 						if(gmu->renderOffset.x != 0 && gmu->enviro->map[gmu->character->x_pos-1][gmu->character->y_pos] < 30){
 							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
-						}
-											
+							gmu->character->x_map_pos -= 1;
 
-						
+						}
+										
 						gmu->character->face = 2;
 
 						break;
 					case SDLK_RIGHT:
 						if(gmu->renderOffset.x != MAP_COL-1 && gmu->enviro->map[gmu->character->x_pos+1][gmu->character->y_pos] < 30){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
+							gmu->character->x_map_pos += 1;
+
 						}
 
 						gmu->character->face = 3;
@@ -154,6 +166,8 @@ void setUpDisplay(GMU* gmu){
 void display(GMU* gmu){
 
 	displayEnvironment(gmu);
+
+
 	// char stays in the center while face changes with input
 	blit_Character(	gmu, 
 			gmu->character->face_types[gmu->character->face],
@@ -161,6 +175,7 @@ void display(GMU* gmu){
 			CENTER);
 
 	SDL_RenderPresent(gmu->game->renderer);
+
 }
 
 //binary

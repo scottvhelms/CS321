@@ -23,6 +23,10 @@ void loadBackground(Environment* enviro);
 //void loadInterLocations(Environment* enviro);
 void displayEnvironment(GMU* gmu);
 void show(GMU* gmu, int type, int row, int col);
+void displayBuildingName(GMU* gmu);
+void showName(GMU* gmu, char* text);
+
+
 
 //developer tools
 void drawRec(Environment* enviro, int x1, int x2, int y1, int y2, int type);

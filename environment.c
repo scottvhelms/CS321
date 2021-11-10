@@ -4,6 +4,9 @@
 
 /***INIT and LOAD***/
 void initializeEnvironment(GMU *gmu){
+	//inti fonts for names
+	gmu->enviro->font = TTF_OpenFont("E_textures/EnterCommand.ttf", 64);
+	
 	//initialize map array to all sidewalk
 	//load the tiles
 	loadBackground(gmu->enviro);
@@ -109,29 +112,6 @@ void initializeBuildings(Environment* enviro){
 	rogers(enviro);
 	whiteTop(enviro);
 	parkingServices(enviro);
-/*
-	//print all the interactable points for troubleshooting
-	int row;
-	mapPoint* current;
-	int counter1 = 0;
-	int counter2 = 1;
-	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
-		current = enviro->interactableLocations[row];
-		while(current!=NULL){
-
-			printf("\nBuilding:%d, Loc:%d", counter1, counter2);
-			printf("\nX:%d", current->x);
-			printf("\nY:%d", current->y);
-			printf("\n");
-
-			current = current->next;
-			++counter2;
-		}
-		++counter1;
-		counter2 = 1;
-	}
-
-*/
 }
 
 void initializeStreets(Environment* enviro){
@@ -153,6 +133,9 @@ void initializeStreets(Environment* enviro){
 /***Display***/
 
 void displayEnvironment(GMU* gmu){
+
+
+	//displaying map
 	int row, col;
 	for (row = gmu->renderOffset.y; row<(REND_ROW+gmu->renderOffset.y); ++row){
 		for (col = gmu->renderOffset.x; col<(REND_COL+gmu->renderOffset.x); ++col){
@@ -172,14 +155,23 @@ void displayEnvironment(GMU* gmu){
 				case STAIRS:
 					show(gmu, STAIRS, row, col);
 					break;
-
+			
 			}
 		}
+
 	}
+	displayBuildingName(gmu);
+
+	//displaying building name (if Applicable)
+//	displayBuildingName(gmu);
+
 
 }
 
 void show(GMU* gmu, int type, int row, int col){
+
+//	displayBuildingName(gmu);
+
 	SDL_Rect destination;
 	SDL_QueryTexture(	gmu->enviro->enviro_types[type], 
 				NULL, 
@@ -198,8 +190,66 @@ void show(GMU* gmu, int type, int row, int col){
 
 }
 
+void displayBuildingName(GMU* gmu){
+	int row;
+	mapPoint* current;
+	int x_high = gmu->character->x_map_pos + 32;
+	int x_low =  gmu->character->x_map_pos - 32;
+	int y_high = gmu->character->y_map_pos + 32;
+	int y_low =  gmu->character->y_map_pos - 32;
+	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
+		current = gmu->enviro->interactableLocations[row];
+		while(current!=NULL){
+			if ( 	(x_low <= current->x) &&
+				(current->x <= x_high) &&
+				(y_low <= current->y) &&
+				(current->y <= y_high) ){
+
+				showName(gmu, gmu->enviro->buildingNames[row]);
+				return;
+			} else {
+				current = current->next;
+			}
+		}
+	}
 
 
+
+//	showName(gmu, "keek");
+
+
+}
+
+
+void showName(GMU* gmu, char* text){
+	SDL_Rect name;
+	name.w = 84*8;
+	name.h = 8*8;
+	name.x = CENTER - name.w/2;
+	name.y = 16;
+	
+	//fill
+	SDL_SetRenderDrawBlendMode(gmu->game->renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(gmu->game->renderer, 236, 236, 236, 150);
+	SDL_RenderFillRect(gmu->game->renderer, &name);
+	//border
+	SDL_SetRenderDrawBlendMode(gmu->game->renderer, SDL_BLENDMODE_NONE);
+	SDL_SetRenderDrawColor(gmu->game->renderer, 0, 0, 0, 150);
+	SDL_RenderDrawRect(gmu->game->renderer, &name);
+	//Text
+	SDL_Color black = {0,0,0,255};
+	SDL_Surface *word_surface = TTF_RenderUTF8_Blended(gmu->enviro->font, text, black);
+	SDL_Texture *word_texture = SDL_CreateTextureFromSurface(gmu->game->renderer, word_surface);
+	SDL_FreeSurface(word_surface);
+
+	name.x = CENTER - (strlen(text)/2)*22;
+
+	SDL_QueryTexture(word_texture, NULL, NULL, &name.w, &name.h);	
+	SDL_RenderCopy(gmu->game->renderer, word_texture, NULL, &name);
+
+
+
+}
 /***TOOLS***/
 
 
