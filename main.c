@@ -108,7 +108,8 @@ void getInput(GMU* gmu){
 				switch(event.key.keysym.sym){
 					
 					case SDLK_UP:
-						if(gmu->renderOffset.y != 0 && gmu && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos-1] < 30){
+						if(gmu->renderOffset.y != 0 &&
+							       	isNotBlocked(gmu, gmu->character->x_map_pos, gmu->character->y_map_pos-1)){
 							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
 							gmu->character->y_map_pos -= 1;
 						}
@@ -117,7 +118,8 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_DOWN:
-						if(gmu->renderOffset.y != MAP_ROW-1 && gmu->enviro->map[gmu->character->x_pos][gmu->character->y_pos+1] < 30){
+						if(gmu->renderOffset.y != MAP_ROW-1 &&
+							       	isNotBlocked(gmu, gmu->character->x_map_pos, gmu->character->y_map_pos+1)){
 							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;
 							gmu->character->y_map_pos += 1;
 
@@ -128,7 +130,8 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_LEFT:
-						if(gmu->renderOffset.x != 0 && gmu->enviro->map[gmu->character->x_pos-1][gmu->character->y_pos] < 30){
+						if(gmu->renderOffset.x != 0 &&
+							       isNotBlocked(gmu, gmu->character->x_map_pos-1, gmu->character->y_map_pos)){
 							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
 							gmu->character->x_map_pos -= 1;
 
@@ -138,7 +141,8 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_RIGHT:
-						if(gmu->renderOffset.x != MAP_COL-1 && gmu->enviro->map[gmu->character->x_pos+1][gmu->character->y_pos] < 30){
+						if(gmu->renderOffset.x != MAP_COL-1 &&
+							       isNotBlocked(gmu, gmu->character->x_map_pos+1, gmu->character->y_map_pos)){
 							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
 							gmu->character->x_map_pos += 1;
 
