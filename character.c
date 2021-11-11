@@ -26,23 +26,23 @@ void loadFaceTypes(GMU* gmu) {
 //collision detection
 int collisionDetected(GMU* gmu, int direction, int x, int y) {
 	switch(direction) {
-		case UP: 
-			if(gmu->enviro->map[x][y-1] >= 30) {
+		case UP:
+			if(gmu->enviro->map[y-1][x] >= GRASS) {
 				return 1;
 			}
 			break;
 		case DOWN:
-			if(gmu->enviro->map[x][y+1] >= 30){
+			if(gmu->enviro->map[y+2][x] >= GRASS){
 				return 1;
 			}
 			break;
-		case LEFT:	
-			if(gmu->enviro->map[x-1][y] >= 30) {
+		case LEFT:
+			if(gmu->enviro->map[y][x-1] >= GRASS) {
 				return 1;
 			}
 			break;
 		case RIGHT:
-			if(gmu->enviro->map[x+1][y] >= 30) {
+			if(gmu->enviro->map[y][x+2] >= GRASS) {
 				return 1;
 			}
 			break;
