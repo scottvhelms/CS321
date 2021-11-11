@@ -108,21 +108,22 @@ void getInput(GMU* gmu){
 				switch(event.key.keysym.sym){
 					
 					case SDLK_UP:
-						if(gmu->renderOffset.y != 0 &&
-							       	isNotBlocked(gmu, gmu->character->x_map_pos, gmu->character->y_map_pos-1)){
-							gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
-							gmu->character->y_map_pos -= 1;
+						if(gmu->renderOffset.y != 0){
+							if(!collisionDetected(gmu, UP, gmu->character->x_map_pos, gmu->character->y_map_pos)){
+								gmu->renderOffset.y = gmu->renderOffset.y - 1 ;	
+								gmu->character->y_map_pos -= 1;
+							}
 						}
 		
 						gmu->character->face = 0;
 
 						break;
 					case SDLK_DOWN:
-						if(gmu->renderOffset.y != MAP_ROW-1 &&
-							       	isNotBlocked(gmu, gmu->character->x_map_pos, gmu->character->y_map_pos+1)){
-							gmu->renderOffset.y = gmu->renderOffset.y + 1 ;
-							gmu->character->y_map_pos += 1;
-
+						if(gmu->renderOffset.y != MAP_ROW-1){
+							if(!collisionDetected(gmu, DOWN, gmu->character->x_map_pos, gmu->character->y_map_pos)){
+								gmu->renderOffset.y = gmu->renderOffset.y + 1 ;
+								gmu->character->y_map_pos += 1;
+							}
 						}
 
 		
@@ -130,26 +131,27 @@ void getInput(GMU* gmu){
 
 						break;
 					case SDLK_LEFT:
-						if(gmu->renderOffset.x != 0 &&
-							       isNotBlocked(gmu, gmu->character->x_map_pos-1, gmu->character->y_map_pos)){
-							gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
-							gmu->character->x_map_pos -= 1;
-
+						if(gmu->renderOffset.x != 0){
+							if(!collisionDetected(gmu, LEFT, gmu->character->x_map_pos, gmu->character->y_map_pos)){
+								gmu->renderOffset.x = gmu->renderOffset.x - 1 ;	
+								gmu->character->x_map_pos -= 1;
+							}
 						}
 										
 						gmu->character->face = 2;
 
 						break;
 					case SDLK_RIGHT:
-						if(gmu->renderOffset.x != MAP_COL-1 &&
-							       isNotBlocked(gmu, gmu->character->x_map_pos+1, gmu->character->y_map_pos)){
-							gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
-							gmu->character->x_map_pos += 1;
-
+						if(gmu->renderOffset.x != MAP_COL-1){
+							if(!collisionDetected(gmu, RIGHT, gmu->character->x_map_pos, gmu->character->y_map_pos)){
+								gmu->renderOffset.x = gmu->renderOffset.x + 1 ;	
+								gmu->character->x_map_pos += 1;
+							}
 						}
 
 						gmu->character->face = 3;
 						break;
+					//case SDLK_SPACE:
 					
 				}
 

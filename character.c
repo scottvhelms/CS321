@@ -24,12 +24,31 @@ void loadFaceTypes(GMU* gmu) {
 
 }
 //collision detection
-int isNotBlocked(GMU* gmu, int x, int y) {
-	if(gmu->enviro->map[x][y] >= 30) {
-		return 0;
+int collisionDetected(GMU* gmu, int direction, int x, int y) {
+	switch(direction) {
+		case UP: 
+			if(gmu->enviro->map[x][y-1] >= 30) {
+				return 1;
+			}
+			break;
+		case DOWN:
+			if(gmu->enviro->map[x][y+1] >= 30){
+				return 1;
+			}
+			break;
+		case LEFT:	
+			if(gmu->enviro->map[x-1][y] >= 30) {
+				return 1;
+			}
+			break;
+		case RIGHT:
+			if(gmu->enviro->map[x+1][y] >= 30) {
+				return 1;
+			}
+			break;
 	}
 
-	return 1;
+	return 0;
 }
 void initCharacter(GMU* gmu) {
 	gmu->character->face = 0;
