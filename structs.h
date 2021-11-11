@@ -23,8 +23,8 @@
 
 /*Enviroment*/
 #define SIDEWALK 0
-#define GRASS 10
-#define STREET 20
+#define STREET 10
+#define GRASS 20 
 #define BUILDING 30 //for collision detection (if x >= 30) will collide
 #define WATER 40
 #define STAIRS 50
