@@ -66,6 +66,42 @@ void initializeNames(Environment* enviro){
 }
 
 void initializeGrass(Environment* enviro){
+	drawRec(enviro, 855, 400, 880, 425, GRASS);//1 N JC
+	drawRec(enviro, 888, 400, 944, 425, GRASS);//2
+	drawRec(enviro, 952, 400, 1000, 425, GRASS);//3
+	drawRec(enviro, 1008, 400, 1055, 425, GRASS);//4
+	drawRec(enviro, 1063, 400, 1104, 425, GRASS);//5
+	drawRec(enviro, 888, 433, 1000, 464, GRASS);//6
+	drawRec(enviro, 1008, 433, 1104, 464, GRASS);//7
+
+
+	drawCircle(enviro, 1004, 429, 9, SIDEWALK);
+	drawQuad(enviro, 1056, 407, 1056, 400, 1007, 428, 1011, 432, SIDEWALK);
+
+	drawRec(enviro, 897, 383, 966, 392, GRASS);//8
+	drawRec(enviro, 982, 386, 1000, 392, GRASS);//9
+	drawRec(enviro, 1008, 386, 1049, 392, GRASS);//10
+	drawRec(enviro, 1057, 386, 1075, 392, GRASS);//11
+	drawRec(enviro, 1008, 375, 1049, 380, GRASS);//12
+	drawRec(enviro, 982, 375, 1000, 380, GRASS);//13
+
+	drawRec(enviro, 1083, 300, 1152, 392, GRASS);//14
+	drawRec(enviro, 1112, 400, 1281, 710, GRASS);//15
+	drawRec(enviro, 1160, 315, 1172, 392, GRASS);//16
+	drawRec(enviro, 1180, 300, 1220, 392, GRASS);//17
+
+	drawRec(enviro, 1148, 300, 1184, 315, SIDEWALK);
+	drawRec(enviro, 1114, 300, 1128, 330, SIDEWALK);
+	drawQuad(enviro, 1221, 299, 1221, 308, 1134, 398, 1128, 395, SIDEWALK);
+	drawQuad(enviro, 1127, 313, 1232, 336, 1231, 341, 1128, 319, SIDEWALK);
+	drawQuad(enviro, 1161, 369, 1173, 380, 1173, 384, 1158, 370, SIDEWALK);
+	drawRec(enviro, 1203, 384, 1256, 409, SIDEWALK);
+
+
+
+
+
+
 
 }
 
@@ -440,7 +476,7 @@ void johnsonCenter(Environment* enviro){ //0
 	drawTriangle(enviro, 876, 457, 904, 455, 874, 477, SIDEWALK);
 	drawTriangle(enviro, 875, 540, 898, 563, 875, 561, SIDEWALK);
 	drawCircle(enviro, 884, 464, 11, BUILDING);
-	drawCircle(enviro, 1007, 457, 8, BUILDING);
+	drawCircle(enviro, 1004, 457, 8, BUILDING);
 	drawCircle(enviro, 1089, 511, 8, BUILDING);
 	drawCircle(enviro, 1006, 564, 8, BUILDING);
 	drawCircle(enviro, 883, 554, 9, BUILDING);
