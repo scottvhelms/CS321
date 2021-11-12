@@ -35,7 +35,16 @@ typedef struct {
 	Movement movement;
 } Interactable;
 
+/*The purpose of this class is to
+ * define an array of interactables
+ * */
+typedef struct {
+	Interactable *interactable;
+} Interactables;
+
 /*Interactable Methods*/
-void initializeInteractables();
-void move(Interactable interactable, int newPX, int newPY);
-void act(Interactable interactable);
+void initInteractable(Interactable *interactable);
+void initInteractables(GMU *gmu);
+void blitInteractables(GMU *gmu, SDL_Texture *texture, int x, int y);
+void move(Interactable *interactable, int newPX, int newPY);
+void act(Interactable *interactable);
