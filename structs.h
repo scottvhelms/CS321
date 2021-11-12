@@ -23,8 +23,8 @@
 
 /*Enviroment*/
 #define SIDEWALK 0
-#define GRASS 10
-#define STREET 20
+#define STREET 10
+#define GRASS 20 
 #define BUILDING 30 //for collision detection (if x >= 30) will collide
 #define WATER 40
 #define STAIRS 50
@@ -50,6 +50,7 @@ typedef struct mapPoint{
 typedef struct{
 	int map[MAP_ROW][MAP_COL];
 	SDL_Texture* enviro_types[AMOUNT_OF_ENVIRO_TYPES];
+	TTF_Font *font;
 	char buildingNames[NUMBER_OF_BUILDINGS][BUILDING_NAME_LENGTH];
 	struct mapPoint* interactableLocations[NUMBER_OF_BUILDINGS];
 }Environment;
@@ -58,6 +59,8 @@ typedef struct{
 typedef struct{
 	int x_pos;
 	int y_pos;
+	int x_map_pos;
+	int y_map_pos;
 	int face;
 	SDL_Texture* up;
 	SDL_Texture* down;

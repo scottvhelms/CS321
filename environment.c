@@ -4,6 +4,9 @@
 
 /***INIT and LOAD***/
 void initializeEnvironment(GMU *gmu){
+	//inti fonts for names
+	gmu->enviro->font = TTF_OpenFont("E_textures/EnterCommand.ttf", 64);
+	
 	//initialize map array to all sidewalk
 	//load the tiles
 	loadBackground(gmu->enviro);
@@ -29,8 +32,8 @@ void loadBackground(Environment* enviro){
 }
 
 void loadEnviroTypes(GMU* gmu){
-	gmu->enviro->enviro_types[10] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
-	gmu->enviro->enviro_types[20] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
+	gmu->enviro->enviro_types[10] = IMG_LoadTexture(gmu->game->renderer, "E_textures/street.png");
+	gmu->enviro->enviro_types[20] = IMG_LoadTexture(gmu->game->renderer, "E_textures/grass.png");
 	gmu->enviro->enviro_types[30] = IMG_LoadTexture(gmu->game->renderer, "E_textures/building.png");
 	gmu->enviro->enviro_types[40] = IMG_LoadTexture(gmu->game->renderer, "E_textures/water.png");
 	gmu->enviro->enviro_types[50] = IMG_LoadTexture(gmu->game->renderer, "E_textures/stairs.png");
@@ -63,6 +66,42 @@ void initializeNames(Environment* enviro){
 }
 
 void initializeGrass(Environment* enviro){
+	drawRec(enviro, 855, 400, 880, 425, GRASS);//1 N JC
+	drawRec(enviro, 888, 400, 944, 425, GRASS);//2
+	drawRec(enviro, 952, 400, 1000, 425, GRASS);//3
+	drawRec(enviro, 1008, 400, 1055, 425, GRASS);//4
+	drawRec(enviro, 1063, 400, 1104, 425, GRASS);//5
+	drawRec(enviro, 888, 433, 1000, 464, GRASS);//6
+	drawRec(enviro, 1008, 433, 1104, 464, GRASS);//7
+
+
+	drawCircle(enviro, 1004, 429, 9, SIDEWALK);
+	drawQuad(enviro, 1056, 407, 1056, 400, 1007, 428, 1011, 432, SIDEWALK);
+
+	drawRec(enviro, 897, 383, 966, 392, GRASS);//8
+	drawRec(enviro, 982, 386, 1000, 392, GRASS);//9
+	drawRec(enviro, 1008, 386, 1049, 392, GRASS);//10
+	drawRec(enviro, 1057, 386, 1075, 392, GRASS);//11
+	drawRec(enviro, 1008, 375, 1049, 380, GRASS);//12
+	drawRec(enviro, 982, 375, 1000, 380, GRASS);//13
+
+	drawRec(enviro, 1083, 300, 1152, 392, GRASS);//14
+	drawRec(enviro, 1112, 400, 1281, 710, GRASS);//15
+	drawRec(enviro, 1160, 315, 1172, 392, GRASS);//16
+	drawRec(enviro, 1180, 300, 1220, 392, GRASS);//17
+
+	drawRec(enviro, 1148, 300, 1184, 315, SIDEWALK);
+	drawRec(enviro, 1114, 300, 1128, 330, SIDEWALK);
+	drawQuad(enviro, 1221, 299, 1221, 308, 1134, 398, 1128, 395, SIDEWALK);
+	drawQuad(enviro, 1127, 313, 1232, 336, 1231, 341, 1128, 319, SIDEWALK);
+	drawQuad(enviro, 1161, 369, 1173, 380, 1173, 384, 1158, 370, SIDEWALK);
+	drawRec(enviro, 1203, 384, 1256, 409, SIDEWALK);
+
+
+
+
+
+
 
 }
 
@@ -109,29 +148,6 @@ void initializeBuildings(Environment* enviro){
 	rogers(enviro);
 	whiteTop(enviro);
 	parkingServices(enviro);
-/*
-	//print all the interactable points for troubleshooting
-	int row;
-	mapPoint* current;
-	int counter1 = 0;
-	int counter2 = 1;
-	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
-		current = enviro->interactableLocations[row];
-		while(current!=NULL){
-
-			printf("\nBuilding:%d, Loc:%d", counter1, counter2);
-			printf("\nX:%d", current->x);
-			printf("\nY:%d", current->y);
-			printf("\n");
-
-			current = current->next;
-			++counter2;
-		}
-		++counter1;
-		counter2 = 1;
-	}
-
-*/
 }
 
 void initializeStreets(Environment* enviro){
@@ -153,6 +169,9 @@ void initializeStreets(Environment* enviro){
 /***Display***/
 
 void displayEnvironment(GMU* gmu){
+
+
+	//displaying map
 	int row, col;
 	for (row = gmu->renderOffset.y; row<(REND_ROW+gmu->renderOffset.y); ++row){
 		for (col = gmu->renderOffset.x; col<(REND_COL+gmu->renderOffset.x); ++col){
@@ -172,14 +191,21 @@ void displayEnvironment(GMU* gmu){
 				case STAIRS:
 					show(gmu, STAIRS, row, col);
 					break;
-
+			
 			}
 		}
+
 	}
+
+	//displaying building name (if Applicable)
+	displayBuildingName(gmu);
+
 
 }
 
 void show(GMU* gmu, int type, int row, int col){
+
+
 	SDL_Rect destination;
 	SDL_QueryTexture(	gmu->enviro->enviro_types[type], 
 				NULL, 
@@ -198,8 +224,61 @@ void show(GMU* gmu, int type, int row, int col){
 
 }
 
+void displayBuildingName(GMU* gmu){
+	int row;
+	mapPoint* current;
+	//32 grid around the robots current pos for interactable detection
+	int x_high = gmu->character->x_map_pos + 32;
+	int x_low =  gmu->character->x_map_pos - 32;
+	int y_high = gmu->character->y_map_pos + 32;
+	int y_low =  gmu->character->y_map_pos - 32;
+	for (row = 0; row<NUMBER_OF_BUILDINGS; ++row){
+		current = gmu->enviro->interactableLocations[row];
+		while(current!=NULL){
+			if ( 	(x_low <= current->x) &&
+				(current->x <= x_high) &&
+				(y_low <= current->y) &&
+				(current->y <= y_high) ){
+
+				showName(gmu, gmu->enviro->buildingNames[row]);
+				return;
+
+			} else {
+				current = current->next;
+			}
+		}
+	}
+
+}
 
 
+void showName(GMU* gmu, char* text){
+	SDL_Rect name;
+	name.w = 84*8;
+	name.h = 8*8;
+	name.x = CENTER - name.w/2;
+	name.y = 16;
+	
+	//fill
+	SDL_SetRenderDrawBlendMode(gmu->game->renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(gmu->game->renderer, 236, 236, 236, 150);
+	SDL_RenderFillRect(gmu->game->renderer, &name);
+	//border
+	SDL_SetRenderDrawBlendMode(gmu->game->renderer, SDL_BLENDMODE_NONE);
+	SDL_SetRenderDrawColor(gmu->game->renderer, 0, 0, 0, 150);
+	SDL_RenderDrawRect(gmu->game->renderer, &name);
+	//Text
+	SDL_Color black = {0,0,0,255};
+	SDL_Surface *word_surface = TTF_RenderUTF8_Blended(gmu->enviro->font, text, black);
+	SDL_Texture *word_texture = SDL_CreateTextureFromSurface(gmu->game->renderer, word_surface);
+	SDL_FreeSurface(word_surface);
+
+	//centering text
+	name.x = CENTER - (strlen(text)/2)*22;
+
+	SDL_QueryTexture(word_texture, NULL, NULL, &name.w, &name.h);	
+	SDL_RenderCopy(gmu->game->renderer, word_texture, NULL, &name);
+}
 /***TOOLS***/
 
 
@@ -397,7 +476,7 @@ void johnsonCenter(Environment* enviro){ //0
 	drawTriangle(enviro, 876, 457, 904, 455, 874, 477, SIDEWALK);
 	drawTriangle(enviro, 875, 540, 898, 563, 875, 561, SIDEWALK);
 	drawCircle(enviro, 884, 464, 11, BUILDING);
-	drawCircle(enviro, 1007, 457, 8, BUILDING);
+	drawCircle(enviro, 1004, 457, 8, BUILDING);
 	drawCircle(enviro, 1089, 511, 8, BUILDING);
 	drawCircle(enviro, 1006, 564, 8, BUILDING);
 	drawCircle(enviro, 883, 554, 9, BUILDING);
