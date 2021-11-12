@@ -23,9 +23,9 @@ void initializeGMU(GMU* gmu){
 	gmu->character = NULL;
 	gmu->character = (Character*)malloc(sizeof(Character));
 	initCharacter(gmu);
-	
-	//TODO add function for initializing interactables
-	//TODO define positionX, positionY, behavior
+
+	/*TODO Action
+	 * */
 	/*
 	gmu->interactables = NULL;
 	gmu->interactables = (Interactables*)malloc(sizeof(Interactables));
