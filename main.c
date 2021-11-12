@@ -26,9 +26,9 @@ void initializeGMU(GMU* gmu){
 	
 	//TODO add function for initializing interactables
 	//TODO define positionX, positionY, behavior
-	gmu->interactable = NULL;
+	gmu->interactables = NULL;
 	gmu->interactables = (Interactables*)malloc(sizeof(Interactables));
-	inititializeInteractables(positionX, positionY, behavior);
+	initInteractables(gmu);
 
 	//initialize render offeset TODO currently 0(top lefthand corner), find resonable offset.
 	gmu->renderOffset.x = START_COL - REND_COL/2;
