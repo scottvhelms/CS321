@@ -6,6 +6,7 @@
 #define N 2
 
 /*Interactable Methods*/
+/*
 void initInteractable(Interactable *interactable) {
 	//TODO Define starting positions
 	interactable.positionX = 0;
@@ -34,3 +35,4 @@ void move(Interactable *interactable, int newPX, int newPY) {
 void act(Interactable *interactable) {
 
 }
+*/
