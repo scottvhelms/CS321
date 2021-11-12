@@ -3,17 +3,21 @@
  *interactables.h
  */
 
-enum interactables {
-	pickup = 1,
-	dropoff = 2
+/*Determines action
+ * 1, 2, 3, ... n
+ * */
+enum actions {
+	pickup,
+	dropoff,
+	student
 };
 
 /*The purpose of this class is to
  * define the interactable 
  * Movement behaviors
+ * Such as a student walking to class
  */
 typedef struct {
-	//Map map;
 } Movement;
 
 /*The purpose of this class is to
@@ -21,7 +25,7 @@ typedef struct {
  * Action behaviors
  */
 typedef struct {
-	enum interactables typeOfAction;
+	enum actions typeOfAction;
 } Action;
 
 
@@ -43,7 +47,7 @@ typedef struct {
 } Interactables;
 
 /*Interactable Methods*/
-void initInteractable(Interactable *interactable);
+void initInteractable(Interactable *interactable, int x, int y, );
 void initInteractables(GMU *gmu);
 void blitInteractables(GMU *gmu, SDL_Texture *texture, int x, int y);
 void move(Interactable *interactable, int newPX, int newPY);
