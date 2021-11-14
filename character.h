@@ -1,7 +1,7 @@
 // Author Cayla DeGuzman
 
 #include "libraries.h"
-#include "environment.h"
+#include "structs.h"
 
 //declarations
 void loadFaceTypes(GMU* gmu);

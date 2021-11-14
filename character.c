@@ -98,7 +98,7 @@ void blit_Character(GMU* gmu, SDL_Texture *texture, int x, int y) {
 	dest.y = y;
 
 	SDL_RenderCopy(gmu->game->renderer, texture, NULL, &dest);
-	showStatus(gmu);
+//	showStatus(gmu);
 }
 
 void initCharacter(GMU* gmu) {

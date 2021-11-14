@@ -1,5 +1,6 @@
 //Author Scott Helms
-
+#ifndef Enviro
+#define Enviro
 
 /*** Include ***/
 #include "libraries.h"
@@ -81,3 +82,4 @@ void rogers(Environment* enviro);//39
 void whiteTop(Environment* enviro);//40
 void parkingServices(Environment* enviro);//41
 
+#endif

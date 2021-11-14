@@ -1,3 +1,6 @@
+#ifndef STRUCTS
+#define STRUCTS
+
 #include "libraries.h"
 /***DEFINES***/
 /*Enviroment*/
@@ -91,3 +94,5 @@ typedef struct{
 	Character* character;
 	//TODO add interactable
 }GMU;
+
+#endif

@@ -25,7 +25,7 @@
 	gmu->Interactables = malloc(N * sizeof(Interactable));
 	for (i = 0; i < N; i++) {
 		gmu->Interactables[i] = malloc(sizeof(Interactable));
-		/* access ENVIRIO for VALID (x,y) 
+		// * access ENVIRIO for VALID (x,y) 
 		 * eg Johnson Center (1004, 448)
 		 */
 /*		j = (rand() % 41);

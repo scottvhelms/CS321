@@ -1,9 +1,9 @@
 /*** Include ***/
 
 #include "libraries.h"
-//#include "structs.h"
+#include "structs.h"
 
-//#include "environment.h"
+#include "environment.h"
 #include "character.h"
 #include "interactables.h"
 
