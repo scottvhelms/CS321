@@ -20,6 +20,8 @@
 
 
 /*** ENUM ***/
+/*Character */
+enum Status{Empty, Delivering, Received};
 
 /*Enviroment*/
 #define SIDEWALK 0
@@ -62,6 +64,8 @@ typedef struct{
 	int x_map_pos;
 	int y_map_pos;
 	int face;
+	enum Status status;
+	TTF_Font *c_Font;
 	SDL_Texture* up;
 	SDL_Texture* down;
 	SDL_Texture* right;

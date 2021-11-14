@@ -158,8 +158,8 @@ void getInput(GMU* gmu){
 					
 				}
 
-
-				
+		
+						
 				//gmu->renderOffset.x = 0;
 				break;
 		}
