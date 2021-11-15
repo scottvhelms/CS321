@@ -47,7 +47,7 @@ char* getStatus(enum Status currStatus){
 	char *s;
 
 	if(currStatus == Empty) {
-		s = "Looking for Food PickUp orders...";
+		s = "Looking for PickUp orders...";
 	 }
 	else if(currStatus == Delivering) {
 		s = "Delivery in Progress.";
@@ -61,12 +61,12 @@ char* getStatus(enum Status currStatus){
 void showStatus(GMU* gmu) {
 	char *txt;
 	txt = getStatus(gmu->character->status);
-	
+
 	SDL_Rect stat;
-	stat.w = 84*4;
-	stat.h = 8*4;
+	stat.w = 84*8;
+	stat.h = 8*8;
 	stat.x = CENTER - stat.w/2;
-	stat.y = 500;
+	stat.y = 800;
 	
 	//fill
 	SDL_SetRenderDrawBlendMode(gmu->game->renderer, SDL_BLENDMODE_BLEND);
@@ -98,7 +98,7 @@ void blit_Character(GMU* gmu, SDL_Texture *texture, int x, int y) {
 	dest.y = y;
 
 	SDL_RenderCopy(gmu->game->renderer, texture, NULL, &dest);
-//	showStatus(gmu);
+	showStatus(gmu);
 }
 
 void initCharacter(GMU* gmu) {
@@ -107,8 +107,8 @@ void initCharacter(GMU* gmu) {
 	gmu->character->y_pos = 64*8;
 	gmu->character->x_map_pos = START_COL; 
 	gmu->character->y_map_pos = START_ROW;
-
-	gmu->character->status = Empty;		
+	gmu->character->c_Font = TTF_OpenFont("C_textures/EnterCommand.ttf", 64);
+	gmu->character->status = Delivering;		
 	loadFaceTypes(gmu);
 
 }
