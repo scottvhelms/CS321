@@ -89,6 +89,28 @@ void showStatus(GMU* gmu) {
 	SDL_RenderCopy(gmu->game->renderer, wrd_texture, NULL, &stat);	
 }
 
+//int deliveryInteract(GMU* gmu) {
+//	int 
+
+void blit_CharacLives(GMU* gmu) {
+	SDL_Rect dest;
+	SDL_Texture *heart;	
+	
+	heart = IMG_LoadTexture(gmu->game->renderer, "C_textures/heart.png");
+	
+	SDL_QueryTexture(heart,NULL,NULL,&dest.w, &dest.h);
+	dest.x = 100;
+	dest.y = 825;
+	
+	SDL_RenderCopy(gmu->game->renderer, heart,NULL, &dest);
+	dest.x = 70;
+	dest.y = 825;
+	SDL_RenderCopy(gmu->game->renderer, heart,NULL, &dest);
+	dest.x = 40;
+	dest.y = 825;
+	SDL_RenderCopy(gmu->game->renderer, heart,NULL, &dest);
+}
+
 void blit_Character(GMU* gmu, SDL_Texture *texture, int x, int y) {
 
 	SDL_Rect dest;
@@ -98,6 +120,7 @@ void blit_Character(GMU* gmu, SDL_Texture *texture, int x, int y) {
 	dest.y = y;
 
 	SDL_RenderCopy(gmu->game->renderer, texture, NULL, &dest);
+	blit_CharacLives(gmu);
 	showStatus(gmu);
 }
 
@@ -108,7 +131,7 @@ void initCharacter(GMU* gmu) {
 	gmu->character->x_map_pos = START_COL; 
 	gmu->character->y_map_pos = START_ROW;
 	gmu->character->c_Font = TTF_OpenFont("C_textures/EnterCommand.ttf", 64);
-	gmu->character->status = Delivering;		
+	gmu->character->status = Empty;		
 	loadFaceTypes(gmu);
 
 }
